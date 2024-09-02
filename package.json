@@ -1,0 +1,18 @@
+{
+  "name": "boto",
+  "version": "0.0.1",
+  "description": "Chat bot para profissionais liberais",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsnd --exit-child --respawn --transpile-only --files src/index.ts"
+  },
+  "keywords": [],
+  "author": "Isaac Sales, Kayo Lucas e Matusálem de Sousa",
+  "license": "ISC",
+  "devDependencies": {
+    "@prisma/client": "^5.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "ts-node-dev": "^2.0.0"
+  }
+}
