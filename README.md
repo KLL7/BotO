@@ -9,7 +9,7 @@ Chat bot para profissionais liberais
  [✅] - Tarefa completa\
  [❗] - Apresenta problemas
 
-[🔴] - Criar um modelo de conversa para ser preenchido pelo profissional\
+[🔴] - Criar um modelo de conversa para ser preenchido pelo profissional
 
 [🔵] - Class Professional
  - [🔴] - Coletar informações para preenchimento do modelo
