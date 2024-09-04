@@ -1,13 +1,13 @@
 # BotO
 Chat bot para profissionais liberais
 
-## Tarefas
-
 ### Simbolos
  [🔴] - Ainda não feita\
  [🔵] - Em andamento\
  [✅] - Tarefa completa\
  [❗] - Apresenta problemas
+
+## Tarefas
 
 [🔴] - Criar um modelo de conversa para ser preenchido pelo profissional
 
