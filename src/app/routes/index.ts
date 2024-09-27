@@ -1,12 +1,12 @@
 import express from "express";
 // Import all routes
-import professionalRouter from "./professional.routes";
+import telegramBotRouter from "./chatbot.telegram.route";
 
 const router = express.Router();
 
 export const useRoutes = (app: express.Application) => {
   // Use all routes here
-  router.use("/professional", professionalRouter);
+  app.use("/bot", telegramBotRouter);
 
   app.use("/api", router);
 };

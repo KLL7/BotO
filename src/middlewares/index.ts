@@ -7,7 +7,6 @@ import express from "express";
 // This function receives an express app and adds all middlewares configurations to it
 export const useMiddlewares = (app: express.Application) => {
   app.set("port", process.env.PORT || 3000);
-  
   app.use(cors());
 
   app.use(express.json());
