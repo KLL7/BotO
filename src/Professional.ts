@@ -14,7 +14,6 @@ export default class Professional implements IProfessional {
     const randomIndexFromGreetingsLength = Math.floor(
       Math.random() * this.greetings.length
     );
-
     return this.greetings[randomIndexFromGreetingsLength];
   }
   getName(): string {

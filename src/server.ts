@@ -1,11 +1,10 @@
 import TelegramBot from "node-telegram-bot-api";
 import "dotenv/config";
 import Professional from "./Professional";
+import TelegramChatBot from "./bot/telegram/TelegramChatBot";
 
-const telBot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN!, {
-  polling: true,
+const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN!, {
 });
-
 const testProfessional = new Professional(
   "João Alberto",
   "joãoalberto@test.me"
@@ -20,17 +19,6 @@ testProfessional.setGreetings([
   "Murilo Gomes Bot ao seu dispor."
 ])
 
-telBot.on("message", (msg) => {
-  const chatId = msg.chat.id;
+const chatBot = new TelegramChatBot(bot, testProfessional);
 
-  let greeting = testProfessional.getRandomGreeting();
- 
-  if (!greeting) {
-    greeting = `
-      Olá! Me chamo ${testProfessional.getName()}.
-      Como posso te ajudar?
-    `;
-  }
-
-  telBot.sendMessage(chatId, greeting);
-});
+chatBot.inicializeBot();
