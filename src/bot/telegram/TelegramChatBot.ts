@@ -20,32 +20,34 @@ export default class TelegramChatBot implements ITelegramChatBot {
 
     this.telegramBot.on("message", (msg) => this.greetingMessages(msg));
   }
+
   greetingMessages(msg: Message): void {
     const chatId = msg.chat.id;
 
     const greeting =
       this.professional.getRandomGreeting() ?? this.getDefaultGreeting();
 
-    this.saveChatMessageJSON(chatId, msg.text!);
+    this.saveChatMessageCSV(chatId, msg.text!);
     this.telegramBot.sendMessage(chatId, greeting);
   }
-  saveChatMessageJSON(chatId: number, message: string): void { 
-    const messageJSON = {
-      chatId: chatId,
-      message: message,
-    };
-
+  
+  saveChatMessageCSV(chatId: number, message: string): void {
+    const newMessage = this.formatMessageToCSV(message);
+    const messageData = `${chatId},${newMessage}\n`;
+    console.log({messageData});
+    console.log({message});
     if (!existsSync(CHAT_FILE_DIR_PATH)) {
       console.log("Creating chat directory...");
       mkdirSync(CHAT_FILE_DIR_PATH);
     }
 
     if (existsSync(CHAT_FILE_PATH)) {
-      appendFile(CHAT_FILE_PATH, JSON.stringify(messageJSON));
+      appendFile(CHAT_FILE_PATH, messageData);
     }
 
     if (!existsSync(CHAT_FILE_PATH)) {
-      writeFile(CHAT_FILE_PATH, JSON.stringify(messageJSON));
+      const headers = "chatId,message\n";
+      writeFile(CHAT_FILE_PATH, headers + messageData);
     }
   }
 
@@ -54,5 +56,9 @@ export default class TelegramChatBot implements ITelegramChatBot {
       Olá! Me chamo ${this.professional.getName()}.
       Como posso te ajudar?
     `;
+  }
+
+  formatMessageToCSV(message: string) {
+    return message.replace(/,/g, ' ').trim();
   }
 }
