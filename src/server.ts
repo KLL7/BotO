@@ -1,7 +1,7 @@
 import TelegramBot from "node-telegram-bot-api";
 import "dotenv/config";
-import Professional from "./Professional";
-import TelegramChatBot from "./bot/telegram/TelegramChatBot";
+import Professional from "./classes/Professional";
+import TelegramChatBot from "./classes/bot/telegram/TelegramChatBot";
 
 const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN!, {
 });
@@ -18,6 +18,7 @@ testProfessional.setGreetings([
   "Manda a braba",
   "Murilo Gomes Bot ao seu dispor."
 ])
+
 
 const chatBot = new TelegramChatBot(bot, testProfessional);
 
