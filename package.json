@@ -19,7 +19,9 @@
     "ts-node-dev": "^2.0.0"
   },
   "dependencies": {
+    "@nlpjs/basic": "^4.27.0",
     "dotenv": "^16.4.5",
+    "node-nlp": "^4.27.0",
     "node-telegram-bot-api": "^0.66.0"
   }
 }
