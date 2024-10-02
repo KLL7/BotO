@@ -1,0 +1,2340 @@
+{
+  "settings": {
+    "languages": [
+      "pt"
+    ],
+    "forceNER": true,
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "pt"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "pt": {
+        "settings": {
+          "locale": "pt",
+          "trainByDomain": false,
+          "tag": "domain-manager-pt",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "bom,dia": {
+            "intent": "Bom dia, como você está?",
+            "domain": "default"
+          },
+          "bem,oi,tud": {
+            "intent": "Bom dia, como você está?",
+            "domain": "default"
+          },
+          "com,esta,ola,voc": {
+            "intent": "Bom dia, como você está?",
+            "domain": "default"
+          },
+          "bem,estou,tamb": {
+            "intent": "Eu também estou.",
+            "domain": "default"
+          },
+          "estou,otim": {
+            "intent": "Eu também estou.",
+            "domain": "default"
+          },
+          "cor,gost,que,voc": {
+            "intent": "Qual é a sua cor favorita?",
+            "domain": "default"
+          },
+          "cor,favorit,tem,uma": {
+            "intent": "Qual é a sua cor favorita?",
+            "domain": "default"
+          },
+          "ia,opinia,qual,sobr,sua": {
+            "intent": "O que você acha sobre inteligência artificial?",
+            "domain": "default"
+          },
+          "artificial,da,inteligenc,o,pens,que": {
+            "intent": "O que você acha sobre inteligência artificial?",
+            "domain": "default"
+          },
+          "a,do,qual,respost,univers": {
+            "intent": "Qual a resposta para a vida, o universo e tudo mais?",
+            "domain": "default"
+          },
+          "da,o,signific,vid": {
+            "intent": "Qual a resposta para a vida, o universo e tudo mais?",
+            "domain": "default"
+          },
+          "cham,com,se,voc": {
+            "intent": "Qual o seu nome?",
+            "domain": "default"
+          },
+          "e,quem,voc": {
+            "intent": "Qual o seu nome?",
+            "domain": "default"
+          },
+          "de,film,gost,voc": {
+            "intent": "Qual é o seu filme favorito?",
+            "domain": "default"
+          },
+          "algum,film,prefer,tem": {
+            "intent": "Qual é o seu filme favorito?",
+            "domain": "default"
+          },
+          "algum,hobby,tem": {
+            "intent": "O que você gosta de fazer?",
+            "domain": "default"
+          },
+          "faz,hor,nas,o,que,vag,voc": {
+            "intent": "O que você gosta de fazer?",
+            "domain": "default"
+          },
+          "de,music,ouv,qual,tip,voc": {
+            "intent": "Você gosta de música?",
+            "domain": "default"
+          },
+          "algum,gost,musical,tem,voc": {
+            "intent": "Você gosta de música?",
+            "domain": "default"
+          },
+          "anim,de,gost,voc": {
+            "intent": "Qual seu animal favorito?",
+            "domain": "default"
+          },
+          "animal,prefer,tem,um": {
+            "intent": "Qual seu animal favorito?",
+            "domain": "default"
+          },
+          "algu,amig,de,e,voc": {
+            "intent": "Você tem amigos?",
+            "domain": "default"
+          },
+          "amizad,faz,voc": {
+            "intent": "Você tem amigos?",
+            "domain": "default"
+          },
+          "acha,extraterrestr,o,que,sobr,voc": {
+            "intent": "Você acredita em aliens?",
+            "domain": "default"
+          },
+          "acredit,da,em,for,terr,vid,voc": {
+            "intent": "Você acredita em aliens?",
+            "domain": "default"
+          },
+          "program,voc": {
+            "intent": "Você sabe programar?",
+            "domain": "default"
+          },
+          "de,entend,programaca,voc": {
+            "intent": "Você sabe programar?",
+            "domain": "default"
+          },
+          "de,esport,gost,voc": {
+            "intent": "Qual seu esporte favorito?",
+            "domain": "default"
+          },
+          "esport,prefer,tem,um": {
+            "intent": "Qual seu esporte favorito?",
+            "domain": "default"
+          },
+          "cont,me,piad,uma": {
+            "intent": "Você conhece alguma piada?",
+            "domain": "default"
+          },
+          "cont,piad,sab,voc": {
+            "intent": "Você conhece alguma piada?",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "Bom dia, como você está?": "default",
+          "Eu também estou.": "default",
+          "Qual é a sua cor favorita?": "default",
+          "O que você acha sobre inteligência artificial?": "default",
+          "Qual a resposta para a vida, o universo e tudo mais?": "default",
+          "Qual o seu nome?": "default",
+          "Qual é o seu filme favorito?": "default",
+          "O que você gosta de fazer?": "default",
+          "Você gosta de música?": "default",
+          "Qual seu animal favorito?": "default",
+          "Você tem amigos?": "default",
+          "Você acredita em aliens?": "default",
+          "Você sabe programar?": "default",
+          "Qual seu esporte favorito?": "default",
+          "Você conhece alguma piada?": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "Bom dia",
+            "intent": "Bom dia, como você está?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Oi, tudo bem?",
+            "intent": "Bom dia, como você está?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Olá, como você está?",
+            "intent": "Bom dia, como você está?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Estou bem também.",
+            "intent": "Eu também estou."
+          },
+          {
+            "domain": "default",
+            "utterance": "Estou ótimo.",
+            "intent": "Eu também estou."
+          },
+          {
+            "domain": "default",
+            "utterance": "Que cor você gosta?",
+            "intent": "Qual é a sua cor favorita?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Tem uma cor favorita?",
+            "intent": "Qual é a sua cor favorita?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Qual sua opinião sobre IA?",
+            "intent": "O que você acha sobre inteligência artificial?"
+          },
+          {
+            "domain": "default",
+            "utterance": "O que pensa da inteligência artificial?",
+            "intent": "O que você acha sobre inteligência artificial?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Qual a resposta do universo?",
+            "intent": "Qual a resposta para a vida, o universo e tudo mais?"
+          },
+          {
+            "domain": "default",
+            "utterance": "O significado da vida?",
+            "intent": "Qual a resposta para a vida, o universo e tudo mais?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Como você se chama?",
+            "intent": "Qual o seu nome?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Quem é você?",
+            "intent": "Qual o seu nome?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Você gosta de filmes?",
+            "intent": "Qual é o seu filme favorito?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Tem algum filme preferido?",
+            "intent": "Qual é o seu filme favorito?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Tem algum hobby?",
+            "intent": "O que você gosta de fazer?"
+          },
+          {
+            "domain": "default",
+            "utterance": "O que você faz nas horas vagas?",
+            "intent": "O que você gosta de fazer?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Qual tipo de música você ouve?",
+            "intent": "Você gosta de música?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Você tem algum gosto musical?",
+            "intent": "Você gosta de música?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Você gosta de animais?",
+            "intent": "Qual seu animal favorito?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Tem um animal preferido?",
+            "intent": "Qual seu animal favorito?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Você é amigo de alguém?",
+            "intent": "Você tem amigos?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Você faz amizades?",
+            "intent": "Você tem amigos?"
+          },
+          {
+            "domain": "default",
+            "utterance": "O que você acha sobre extraterrestres?",
+            "intent": "Você acredita em aliens?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Você acredita em vida fora da Terra?",
+            "intent": "Você acredita em aliens?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Você programa?",
+            "intent": "Você sabe programar?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Você entende de programação?",
+            "intent": "Você sabe programar?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Você gosta de esportes?",
+            "intent": "Qual seu esporte favorito?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Tem um esporte preferido?",
+            "intent": "Qual seu esporte favorito?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Me conta uma piada?",
+            "intent": "Você conhece alguma piada?"
+          },
+          {
+            "domain": "default",
+            "utterance": "Você sabe contar piadas?",
+            "intent": "Você conhece alguma piada?"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "pt",
+              "tag": "nlu-pt",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "bom": 1,
+              "dia": 1,
+              "oi": 1,
+              "tud": 1,
+              "bem": 1,
+              "ola": 1,
+              "com": 1,
+              "voc": 1,
+              "esta": 1,
+              "estou": 1,
+              "tamb": 1,
+              "otim": 1,
+              "que": 1,
+              "cor": 1,
+              "gost": 1,
+              "tem": 1,
+              "uma": 1,
+              "favorit": 1,
+              "qual": 1,
+              "sua": 1,
+              "opinia": 1,
+              "sobr": 1,
+              "ia": 1,
+              "o": 1,
+              "pens": 1,
+              "da": 1,
+              "inteligenc": 1,
+              "artificial": 1,
+              "a": 1,
+              "respost": 1,
+              "do": 1,
+              "univers": 1,
+              "signific": 1,
+              "vid": 1,
+              "se": 1,
+              "cham": 1,
+              "quem": 1,
+              "e": 1,
+              "de": 1,
+              "film": 1,
+              "algum": 1,
+              "prefer": 1,
+              "hobby": 1,
+              "faz": 1,
+              "nas": 1,
+              "hor": 1,
+              "vag": 1,
+              "tip": 1,
+              "music": 1,
+              "ouv": 1,
+              "musical": 1,
+              "anim": 1,
+              "um": 1,
+              "animal": 1,
+              "amig": 1,
+              "algu": 1,
+              "amizad": 1,
+              "acha": 1,
+              "extraterrestr": 1,
+              "acredit": 1,
+              "em": 1,
+              "for": 1,
+              "terr": 1,
+              "program": 1,
+              "entend": 1,
+              "programaca": 1,
+              "esport": 1,
+              "me": 1,
+              "cont": 1,
+              "piad": 1,
+              "sab": 1
+            },
+            "intents": {
+              "Bom dia, como você está?": 1,
+              "Eu também estou.": 1,
+              "Qual é a sua cor favorita?": 1,
+              "O que você acha sobre inteligência artificial?": 1,
+              "Qual a resposta para a vida, o universo e tudo mais?": 1,
+              "Qual o seu nome?": 1,
+              "Qual é o seu filme favorito?": 1,
+              "O que você gosta de fazer?": 1,
+              "Você gosta de música?": 1,
+              "Qual seu animal favorito?": 1,
+              "Você tem amigos?": 1,
+              "Você acredita em aliens?": 1,
+              "Você sabe programar?": 1,
+              "Qual seu esporte favorito?": 1,
+              "Você conhece alguma piada?": 1
+            },
+            "intentFeatures": {
+              "Bom dia, como você está?": {
+                "bom": 1,
+                "dia": 1,
+                "oi": 1,
+                "tud": 1,
+                "bem": 1,
+                "ola": 1,
+                "com": 1,
+                "voc": 1,
+                "esta": 1
+              },
+              "Eu também estou.": {
+                "estou": 1,
+                "bem": 1,
+                "tamb": 1,
+                "otim": 1
+              },
+              "Qual é a sua cor favorita?": {
+                "que": 1,
+                "cor": 1,
+                "voc": 1,
+                "gost": 1,
+                "tem": 1,
+                "uma": 1,
+                "favorit": 1
+              },
+              "O que você acha sobre inteligência artificial?": {
+                "qual": 1,
+                "sua": 1,
+                "opinia": 1,
+                "sobr": 1,
+                "ia": 1,
+                "o": 1,
+                "que": 1,
+                "pens": 1,
+                "da": 1,
+                "inteligenc": 1,
+                "artificial": 1
+              },
+              "Qual a resposta para a vida, o universo e tudo mais?": {
+                "qual": 1,
+                "a": 1,
+                "respost": 1,
+                "do": 1,
+                "univers": 1,
+                "o": 1,
+                "signific": 1,
+                "da": 1,
+                "vid": 1
+              },
+              "Qual o seu nome?": {
+                "com": 1,
+                "voc": 1,
+                "se": 1,
+                "cham": 1,
+                "quem": 1,
+                "e": 1
+              },
+              "Qual é o seu filme favorito?": {
+                "voc": 1,
+                "gost": 1,
+                "de": 1,
+                "film": 1,
+                "tem": 1,
+                "algum": 1,
+                "prefer": 1
+              },
+              "O que você gosta de fazer?": {
+                "tem": 1,
+                "algum": 1,
+                "hobby": 1,
+                "o": 1,
+                "que": 1,
+                "voc": 1,
+                "faz": 1,
+                "nas": 1,
+                "hor": 1,
+                "vag": 1
+              },
+              "Você gosta de música?": {
+                "qual": 1,
+                "tip": 1,
+                "de": 1,
+                "music": 1,
+                "voc": 1,
+                "ouv": 1,
+                "tem": 1,
+                "algum": 1,
+                "gost": 1,
+                "musical": 1
+              },
+              "Qual seu animal favorito?": {
+                "voc": 1,
+                "gost": 1,
+                "de": 1,
+                "anim": 1,
+                "tem": 1,
+                "um": 1,
+                "animal": 1,
+                "prefer": 1
+              },
+              "Você tem amigos?": {
+                "voc": 1,
+                "e": 1,
+                "amig": 1,
+                "de": 1,
+                "algu": 1,
+                "faz": 1,
+                "amizad": 1
+              },
+              "Você acredita em aliens?": {
+                "o": 1,
+                "que": 1,
+                "voc": 1,
+                "acha": 1,
+                "sobr": 1,
+                "extraterrestr": 1,
+                "acredit": 1,
+                "em": 1,
+                "vid": 1,
+                "for": 1,
+                "da": 1,
+                "terr": 1
+              },
+              "Você sabe programar?": {
+                "voc": 1,
+                "program": 1,
+                "entend": 1,
+                "de": 1,
+                "programaca": 1
+              },
+              "Qual seu esporte favorito?": {
+                "voc": 1,
+                "gost": 1,
+                "de": 1,
+                "esport": 1,
+                "tem": 1,
+                "um": 1,
+                "prefer": 1
+              },
+              "Você conhece alguma piada?": {
+                "me": 1,
+                "cont": 1,
+                "uma": 1,
+                "piad": 1,
+                "voc": 1,
+                "sab": 1
+              }
+            },
+            "featuresToIntent": {
+              "bom": [
+                "Bom dia, como você está?"
+              ],
+              "dia": [
+                "Bom dia, como você está?"
+              ],
+              "oi": [
+                "Bom dia, como você está?"
+              ],
+              "tud": [
+                "Bom dia, como você está?"
+              ],
+              "bem": [
+                "Bom dia, como você está?",
+                "Eu também estou."
+              ],
+              "ola": [
+                "Bom dia, como você está?"
+              ],
+              "com": [
+                "Bom dia, como você está?",
+                "Qual o seu nome?"
+              ],
+              "voc": [
+                "Bom dia, como você está?",
+                "Qual é a sua cor favorita?",
+                "Qual o seu nome?",
+                "Qual é o seu filme favorito?",
+                "O que você gosta de fazer?",
+                "Você gosta de música?",
+                "Qual seu animal favorito?",
+                "Você tem amigos?",
+                "Você acredita em aliens?",
+                "Você sabe programar?",
+                "Qual seu esporte favorito?",
+                "Você conhece alguma piada?"
+              ],
+              "esta": [
+                "Bom dia, como você está?"
+              ],
+              "estou": [
+                "Eu também estou."
+              ],
+              "tamb": [
+                "Eu também estou."
+              ],
+              "otim": [
+                "Eu também estou."
+              ],
+              "que": [
+                "Qual é a sua cor favorita?",
+                "O que você acha sobre inteligência artificial?",
+                "O que você gosta de fazer?",
+                "Você acredita em aliens?"
+              ],
+              "cor": [
+                "Qual é a sua cor favorita?"
+              ],
+              "gost": [
+                "Qual é a sua cor favorita?",
+                "Qual é o seu filme favorito?",
+                "Você gosta de música?",
+                "Qual seu animal favorito?",
+                "Qual seu esporte favorito?"
+              ],
+              "tem": [
+                "Qual é a sua cor favorita?",
+                "Qual é o seu filme favorito?",
+                "O que você gosta de fazer?",
+                "Você gosta de música?",
+                "Qual seu animal favorito?",
+                "Qual seu esporte favorito?"
+              ],
+              "uma": [
+                "Qual é a sua cor favorita?",
+                "Você conhece alguma piada?"
+              ],
+              "favorit": [
+                "Qual é a sua cor favorita?"
+              ],
+              "qual": [
+                "O que você acha sobre inteligência artificial?",
+                "Qual a resposta para a vida, o universo e tudo mais?",
+                "Você gosta de música?"
+              ],
+              "sua": [
+                "O que você acha sobre inteligência artificial?"
+              ],
+              "opinia": [
+                "O que você acha sobre inteligência artificial?"
+              ],
+              "sobr": [
+                "O que você acha sobre inteligência artificial?",
+                "Você acredita em aliens?"
+              ],
+              "ia": [
+                "O que você acha sobre inteligência artificial?"
+              ],
+              "o": [
+                "O que você acha sobre inteligência artificial?",
+                "Qual a resposta para a vida, o universo e tudo mais?",
+                "O que você gosta de fazer?",
+                "Você acredita em aliens?"
+              ],
+              "pens": [
+                "O que você acha sobre inteligência artificial?"
+              ],
+              "da": [
+                "O que você acha sobre inteligência artificial?",
+                "Qual a resposta para a vida, o universo e tudo mais?",
+                "Você acredita em aliens?"
+              ],
+              "inteligenc": [
+                "O que você acha sobre inteligência artificial?"
+              ],
+              "artificial": [
+                "O que você acha sobre inteligência artificial?"
+              ],
+              "a": [
+                "Qual a resposta para a vida, o universo e tudo mais?"
+              ],
+              "respost": [
+                "Qual a resposta para a vida, o universo e tudo mais?"
+              ],
+              "do": [
+                "Qual a resposta para a vida, o universo e tudo mais?"
+              ],
+              "univers": [
+                "Qual a resposta para a vida, o universo e tudo mais?"
+              ],
+              "signific": [
+                "Qual a resposta para a vida, o universo e tudo mais?"
+              ],
+              "vid": [
+                "Qual a resposta para a vida, o universo e tudo mais?",
+                "Você acredita em aliens?"
+              ],
+              "se": [
+                "Qual o seu nome?"
+              ],
+              "cham": [
+                "Qual o seu nome?"
+              ],
+              "quem": [
+                "Qual o seu nome?"
+              ],
+              "e": [
+                "Qual o seu nome?",
+                "Você tem amigos?"
+              ],
+              "de": [
+                "Qual é o seu filme favorito?",
+                "Você gosta de música?",
+                "Qual seu animal favorito?",
+                "Você tem amigos?",
+                "Você sabe programar?",
+                "Qual seu esporte favorito?"
+              ],
+              "film": [
+                "Qual é o seu filme favorito?"
+              ],
+              "algum": [
+                "Qual é o seu filme favorito?",
+                "O que você gosta de fazer?",
+                "Você gosta de música?"
+              ],
+              "prefer": [
+                "Qual é o seu filme favorito?",
+                "Qual seu animal favorito?",
+                "Qual seu esporte favorito?"
+              ],
+              "hobby": [
+                "O que você gosta de fazer?"
+              ],
+              "faz": [
+                "O que você gosta de fazer?",
+                "Você tem amigos?"
+              ],
+              "nas": [
+                "O que você gosta de fazer?"
+              ],
+              "hor": [
+                "O que você gosta de fazer?"
+              ],
+              "vag": [
+                "O que você gosta de fazer?"
+              ],
+              "tip": [
+                "Você gosta de música?"
+              ],
+              "music": [
+                "Você gosta de música?"
+              ],
+              "ouv": [
+                "Você gosta de música?"
+              ],
+              "musical": [
+                "Você gosta de música?"
+              ],
+              "anim": [
+                "Qual seu animal favorito?"
+              ],
+              "um": [
+                "Qual seu animal favorito?",
+                "Qual seu esporte favorito?"
+              ],
+              "animal": [
+                "Qual seu animal favorito?"
+              ],
+              "amig": [
+                "Você tem amigos?"
+              ],
+              "algu": [
+                "Você tem amigos?"
+              ],
+              "amizad": [
+                "Você tem amigos?"
+              ],
+              "acha": [
+                "Você acredita em aliens?"
+              ],
+              "extraterrestr": [
+                "Você acredita em aliens?"
+              ],
+              "acredit": [
+                "Você acredita em aliens?"
+              ],
+              "em": [
+                "Você acredita em aliens?"
+              ],
+              "for": [
+                "Você acredita em aliens?"
+              ],
+              "terr": [
+                "Você acredita em aliens?"
+              ],
+              "program": [
+                "Você sabe programar?"
+              ],
+              "entend": [
+                "Você sabe programar?"
+              ],
+              "programaca": [
+                "Você sabe programar?"
+              ],
+              "esport": [
+                "Qual seu esporte favorito?"
+              ],
+              "me": [
+                "Você conhece alguma piada?"
+              ],
+              "cont": [
+                "Você conhece alguma piada?"
+              ],
+              "piad": [
+                "Você conhece alguma piada?"
+              ],
+              "sab": [
+                "Você conhece alguma piada?"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "pt",
+                "tag": "nlu-pt",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "bom",
+                "dia",
+                "oi",
+                "tud",
+                "bem",
+                "ola",
+                "com",
+                "voc",
+                "esta",
+                "estou",
+                "tamb",
+                "otim",
+                "que",
+                "cor",
+                "gost",
+                "tem",
+                "uma",
+                "favorit",
+                "qual",
+                "sua",
+                "opinia",
+                "sobr",
+                "ia",
+                "o",
+                "pens",
+                "da",
+                "inteligenc",
+                "artificial",
+                "a",
+                "respost",
+                "do",
+                "univers",
+                "signific",
+                "vid",
+                "se",
+                "cham",
+                "quem",
+                "e",
+                "de",
+                "film",
+                "algum",
+                "prefer",
+                "hobby",
+                "faz",
+                "nas",
+                "hor",
+                "vag",
+                "tip",
+                "music",
+                "ouv",
+                "musical",
+                "anim",
+                "um",
+                "animal",
+                "amig",
+                "algu",
+                "amizad",
+                "acha",
+                "extraterrestr",
+                "acredit",
+                "em",
+                "for",
+                "terr",
+                "program",
+                "entend",
+                "programaca",
+                "esport",
+                "me",
+                "cont",
+                "piad",
+                "sab"
+              ],
+              "intents": [
+                "Bom dia, como você está?",
+                "Eu também estou.",
+                "Qual é a sua cor favorita?",
+                "O que você acha sobre inteligência artificial?",
+                "Qual a resposta para a vida, o universo e tudo mais?",
+                "Qual o seu nome?",
+                "Qual é o seu filme favorito?",
+                "O que você gosta de fazer?",
+                "Você gosta de música?",
+                "Qual seu animal favorito?",
+                "Você tem amigos?",
+                "Você acredita em aliens?",
+                "Você sabe programar?",
+                "Qual seu esporte favorito?",
+                "Você conhece alguma piada?"
+              ],
+              "perceptrons": [
+                [
+                  6.033409118652344,
+                  6.033409118652344,
+                  4.752224445343018,
+                  4.752224445343018,
+                  2.567173480987549,
+                  5.064311504364014,
+                  2.9922356605529785,
+                  -1.0664262771606445,
+                  5.064311504364014,
+                  -2.5849711894989014,
+                  -2.1856935024261475,
+                  -0.3661500811576843,
+                  -0.6359696984291077,
+                  -0.5639698505401611,
+                  -0.7366368770599365,
+                  -1.2135952711105347,
+                  -0.6271190643310547,
+                  -0.22553613781929016,
+                  -0.8464443683624268,
+                  -0.34066256880760193,
+                  -0.34066256880760193,
+                  -0.36449673771858215,
+                  -0.34066256880760193,
+                  -0.674859344959259,
+                  -0.1337864249944687,
+                  -0.6639453768730164,
+                  -0.1337864249944687,
+                  -0.1337864249944687,
+                  -0.34235912561416626,
+                  -0.34235912561416626,
+                  -0.34235912561416626,
+                  -0.34235912561416626,
+                  -0.3632224500179291,
+                  -0.5127209424972534,
+                  -2.071805238723755,
+                  -2.071805238723755,
+                  -0.6039974093437195,
+                  -0.7420116066932678,
+                  -0.8287737369537354,
+                  -0.33556613326072693,
+                  -0.6016578078269958,
+                  -0.4877080023288727,
+                  -0.39588668942451477,
+                  -0.7039384245872498,
+                  -0.11228346824645996,
+                  -0.11228346824645996,
+                  -0.11228346824645996,
+                  -0.11908227205276489,
+                  -0.11908227205276489,
+                  -0.11908227205276489,
+                  -0.05296729505062103,
+                  -0.10300486534833908,
+                  -0.36054566502571106,
+                  -0.21273207664489746,
+                  -0.11287526786327362,
+                  -0.11287526786327362,
+                  -0.5668320059776306,
+                  -0.01644023321568966,
+                  -0.01644023321568966,
+                  -0.13408739864826202,
+                  -0.13408739864826202,
+                  -0.13408739864826202,
+                  -0.13408739864826202,
+                  -1.0836780071258545,
+                  -0.20668502151966095,
+                  -0.20668502151966095,
+                  -0.1431976705789566,
+                  -0.3762845993041992,
+                  -0.6009738445281982,
+                  -0.6009738445281982,
+                  -0.21005631983280182,
+                  2.2041409209057945
+                ],
+                [
+                  -0.6606280207633972,
+                  -0.6606280207633972,
+                  -1.5318472385406494,
+                  -1.5318472385406494,
+                  1.6906768083572388,
+                  -0.00882580503821373,
+                  -0.17114248871803284,
+                  -1.1402429342269897,
+                  -0.00882580503821373,
+                  8.071390151977539,
+                  3.2298290729522705,
+                  4.8420562744140625,
+                  -0.32321274280548096,
+                  -0.3153778910636902,
+                  -0.2536952495574951,
+                  -0.7896603345870972,
+                  -0.48697859048843384,
+                  -0.16736283898353577,
+                  -0.5510082840919495,
+                  -0.23995661735534668,
+                  -0.23995661735534668,
+                  -0.23995661735534668,
+                  -0.23995661735534668,
+                  -0.45754313468933105,
+                  -0.14865954220294952,
+                  -0.4479401707649231,
+                  -0.14865954220294952,
+                  -0.14865954220294952,
+                  -0.23904988169670105,
+                  -0.23904988169670105,
+                  -0.23904988169670105,
+                  -0.23904988169670105,
+                  -0.25077831745147705,
+                  -0.2655906081199646,
+                  -0.1499662846326828,
+                  -0.1499662846326828,
+                  -0.1638452708721161,
+                  -0.21317879855632782,
+                  -0.23536480963230133,
+                  -0.1890524923801422,
+                  -0.3626722991466522,
+                  -0.35191071033477783,
+                  -0.21993303298950195,
+                  -0.15706220269203186,
+                  -0.015518343076109886,
+                  -0.015518343076109886,
+                  -0.015518343076109886,
+                  -0.019267413765192032,
+                  -0.019267413765192032,
+                  -0.019267413765192032,
+                  -0.0022241787519305944,
+                  -0.031768880784511566,
+                  -0.21393661201000214,
+                  -0.12271850556135178,
+                  -0.03707852587103844,
+                  -0.03707852587103844,
+                  -0.1333225667476654,
+                  0,
+                  0,
+                  -0.008785692043602467,
+                  -0.008785692043602467,
+                  -0.008785692043602467,
+                  -0.008785692043602467,
+                  -0.19024761021137238,
+                  -0.04837346449494362,
+                  -0.04837346449494362,
+                  -0.07903428375720978,
+                  -0.28206098079681396,
+                  -0.3027276396751404,
+                  -0.3027276396751404,
+                  -0.014343704096972942,
+                  1.3275618724478226
+                ],
+                [
+                  -0.06824317574501038,
+                  -0.06824317574501038,
+                  -0.039875708520412445,
+                  -0.039875708520412445,
+                  -0.06943513453006744,
+                  -0.00003687180287670344,
+                  -0.2402263879776001,
+                  0.13782893121242523,
+                  -0.00003687180287670344,
+                  -0.08259593695402145,
+                  -0.026454316452145576,
+                  -0.05363097041845322,
+                  3.5386409759521484,
+                  8.217927932739258,
+                  2.203535795211792,
+                  0.7052669525146484,
+                  2.2080349922180176,
+                  3.077045440673828,
+                  -0.3297151029109955,
+                  -0.11441082507371902,
+                  -0.11441082507371902,
+                  -0.7892709374427795,
+                  -0.11441082507371902,
+                  -1.7026294469833374,
+                  -0.45867758989334106,
+                  -0.5559727549552917,
+                  -0.45867758989334106,
+                  -0.45867758989334106,
+                  -0.10008615255355835,
+                  -0.10008615255355835,
+                  -0.10008615255355835,
+                  -0.10008615255355835,
+                  -0.05884690582752228,
+                  -0.07807105034589767,
+                  -0.20452287793159485,
+                  -0.20452287793159485,
+                  -0.2731941044330597,
+                  -0.2849002182483673,
+                  -1.7717030048370361,
+                  -0.7774788737297058,
+                  -1.894696593284607,
+                  -0.7025914788246155,
+                  -0.3592517673969269,
+                  -0.5545411109924316,
+                  -0.5057981610298157,
+                  -0.5057981610298157,
+                  -0.5057981610298157,
+                  -0.04301009327173233,
+                  -0.04301009327173233,
+                  -0.04301009327173233,
+                  -1.2532330751419067,
+                  -0.6770574450492859,
+                  -0.46412190794944763,
+                  -0.28365305066108704,
+                  -0.003808616893365979,
+                  -0.003808616893365979,
+                  -0.03306375443935394,
+                  -0.6396055817604065,
+                  -0.6396055817604065,
+                  -0.0004057584155816585,
+                  -0.0004057584155816585,
+                  -0.0004057584155816585,
+                  -0.0004057584155816585,
+                  -0.22215743362903595,
+                  0,
+                  0,
+                  -0.6304391026496887,
+                  -0.8457620739936829,
+                  -0.8457620739936829,
+                  -0.8457620739936829,
+                  0,
+                  0.09570581411720111
+                ],
+                [
+                  -0.23933030664920807,
+                  -0.23933030664920807,
+                  -0.14042159914970398,
+                  -0.14042159914970398,
+                  -0.2507929503917694,
+                  0,
+                  -0.04933105781674385,
+                  -2.281688928604126,
+                  0,
+                  -0.2924617826938629,
+                  -0.09305194020271301,
+                  -0.18426847457885742,
+                  1.5689316987991333,
+                  -0.11597276479005814,
+                  -0.14288143813610077,
+                  -0.35892340540885925,
+                  -0.15017259120941162,
+                  -0.008282097056508064,
+                  2.1996097564697266,
+                  3.197932720184326,
+                  3.197932720184326,
+                  2.0303616523742676,
+                  3.197932720184326,
+                  0.34829676151275635,
+                  3.336785078048706,
+                  1.895222544670105,
+                  3.336785078048706,
+                  3.336785078048706,
+                  -0.7200202345848083,
+                  -0.7200202345848083,
+                  -0.7200202345848083,
+                  -0.7200202345848083,
+                  -1.319113850593567,
+                  -1.4244868755340576,
+                  -0.04933105781674385,
+                  -0.04933105781674385,
+                  -0.04505586251616478,
+                  -0.04505586251616478,
+                  -0.271711528301239,
+                  -0.13280004262924194,
+                  -0.23390726745128632,
+                  -0.2081632763147354,
+                  -0.12267636507749557,
+                  -0.4112864136695862,
+                  -0.4112864136695862,
+                  -0.4112864136695862,
+                  -0.4112864136695862,
+                  -0.21800285577774048,
+                  -0.21800285577774048,
+                  -0.21800285577774048,
+                  -0.00043077580630779266,
+                  -0.0012227966217324138,
+                  -0.09871840476989746,
+                  -0.06702210754156113,
+                  0,
+                  0,
+                  0,
+                  -1.1288042068481445,
+                  -1.1288042068481445,
+                  -0.06631699204444885,
+                  -0.06631699204444885,
+                  -0.06631699204444885,
+                  -0.06631699204444885,
+                  0,
+                  0,
+                  0,
+                  -0.020472494885325432,
+                  -0.13704663515090942,
+                  -0.13704663515090942,
+                  -0.13704663515090942,
+                  0,
+                  0.463116987952767
+                ],
+                [
+                  -0.3783564567565918,
+                  -0.3783564567565918,
+                  -0.21307331323623657,
+                  -0.21307331323623657,
+                  -0.3842743933200836,
+                  0,
+                  -0.09107489138841629,
+                  -2.2339489459991455,
+                  0,
+                  -0.45994633436203003,
+                  -0.15071842074394226,
+                  -0.2962985634803772,
+                  -1.8307198286056519,
+                  -0.042048536241054535,
+                  -0.07561451196670532,
+                  -0.5322129726409912,
+                  -0.2576817274093628,
+                  -0.042048536241054535,
+                  1.8718301057815552,
+                  -0.6720812916755676,
+                  -0.6720812916755676,
+                  -0.8892649412155151,
+                  -0.6720812916755676,
+                  2.9022536277770996,
+                  -1.3643112182617188,
+                  2.264162540435791,
+                  -1.3643112182617188,
+                  -1.3643112182617188,
+                  2.9145443439483643,
+                  2.9145443439483643,
+                  2.9145443439483643,
+                  2.9145443439483643,
+                  4.7330851554870605,
+                  3.6286730766296387,
+                  -0.09107489138841629,
+                  -0.09107489138841629,
+                  -0.08204162120819092,
+                  -0.09168616682291031,
+                  -0.39072877168655396,
+                  -0.17706336081027985,
+                  -0.3087378144264221,
+                  -0.284198135137558,
+                  -0.1607528179883957,
+                  -0.22039556503295898,
+                  -0.18531087040901184,
+                  -0.18531087040901184,
+                  -0.18531087040901184,
+                  -0.29391250014305115,
+                  -0.29391250014305115,
+                  -0.29391250014305115,
+                  -0.005016731098294258,
+                  -0.005633896216750145,
+                  -0.1469714343547821,
+                  -0.09438527375459671,
+                  -0.0037551468703895807,
+                  -0.0037551468703895807,
+                  -0.009718980640172958,
+                  -0.1626424342393875,
+                  -0.1626424342393875,
+                  -1.1042431592941284,
+                  -1.1042431592941284,
+                  -1.1042431592941284,
+                  -1.1042431592941284,
+                  0,
+                  0,
+                  0,
+                  -0.03473073989152908,
+                  -0.1995769441127777,
+                  -0.1995769441127777,
+                  -0.1995769441127777,
+                  0,
+                  0.7573023749211925
+                ],
+                [
+                  -0.1959000676870346,
+                  -0.1959000676870346,
+                  -0.12154323607683182,
+                  -0.12154323607683182,
+                  -0.16979479789733887,
+                  -2.2751924991607666,
+                  2.5889089107513428,
+                  1.5827442407608032,
+                  -2.2751924991607666,
+                  -0.21055351197719574,
+                  -0.0436699204146862,
+                  -0.16337215900421143,
+                  -0.8370715975761414,
+                  -0.05852266028523445,
+                  -1.0683932304382324,
+                  -0.6383245587348938,
+                  -0.03553033620119095,
+                  0,
+                  -0.3762023150920868,
+                  0,
+                  0,
+                  -0.3275611400604248,
+                  0,
+                  -0.747276782989502,
+                  0,
+                  -0.4173048436641693,
+                  0,
+                  0,
+                  -0.0009328853921033442,
+                  -0.0009328853921033442,
+                  -0.0009328853921033442,
+                  -0.0009328853921033442,
+                  0,
+                  -0.4173048436641693,
+                  4.865023612976074,
+                  4.865023612976074,
+                  7.0722832679748535,
+                  5.094730377197266,
+                  -3.053225040435791,
+                  -0.35629796981811523,
+                  -0.5668379068374634,
+                  -0.12646140158176422,
+                  -0.0837734267115593,
+                  -1.2541921138763428,
+                  -0.3053377568721771,
+                  -0.3053377568721771,
+                  -0.3053377568721771,
+                  -0.28154486417770386,
+                  -0.28154486417770386,
+                  -0.28154486417770386,
+                  -0.36609625816345215,
+                  -0.22475118935108185,
+                  -0.043324507772922516,
+                  -0.043324507772922516,
+                  -1.9891611337661743,
+                  -1.9891611337661743,
+                  -0.8317346572875977,
+                  -0.3275611400604248,
+                  -0.3275611400604248,
+                  -0.4173048436641693,
+                  -0.4173048436641693,
+                  -0.4173048436641693,
+                  -0.4173048436641693,
+                  -1.8167035579681396,
+                  -0.06360684335231781,
+                  -0.06360684335231781,
+                  0,
+                  -0.03553033620119095,
+                  -0.6954091191291809,
+                  -0.6954091191291809,
+                  -0.653174638748169,
+                  0.375723508486359
+                ],
+                [
+                  -0.09178014099597931,
+                  -0.09178014099597931,
+                  -0.05299972742795944,
+                  -0.05299972742795944,
+                  -0.08516208082437515,
+                  0,
+                  0,
+                  -0.5909759998321533,
+                  0,
+                  -0.10679745674133301,
+                  -0.0314803421497345,
+                  -0.07473868876695633,
+                  -0.3938201069831848,
+                  -0.32190945744514465,
+                  1.222228765487671,
+                  -0.5962081551551819,
+                  -0.1358681470155716,
+                  -0.09405302256345749,
+                  -0.4012735188007355,
+                  -0.005205328576266766,
+                  -0.005205328576266766,
+                  -0.018863549456000328,
+                  -0.005205328576266766,
+                  -0.16697464883327484,
+                  -0.00269867479801178,
+                  -0.03851349651813507,
+                  -0.00269867479801178,
+                  -0.00269867479801178,
+                  -0.00417809234932065,
+                  -0.00417809234932065,
+                  -0.00417809234932065,
+                  -0.00417809234932065,
+                  -0.0033530991058796644,
+                  -0.03326612338423729,
+                  0,
+                  0,
+                  0,
+                  -0.434119313955307,
+                  1.68539297580719,
+                  11.224717140197754,
+                  1.0997898578643799,
+                  2.552262306213379,
+                  -1.258644461631775,
+                  -0.1911168247461319,
+                  -0.12265044450759888,
+                  -0.12265044450759888,
+                  -0.12265044450759888,
+                  -0.3817202150821686,
+                  -0.3817202150821686,
+                  -0.3817202150821686,
+                  -1.748017430305481,
+                  -2.2363228797912598,
+                  -1.5709480047225952,
+                  -1.0281875133514404,
+                  -0.434119313955307,
+                  -0.434119313955307,
+                  -0.0354561023414135,
+                  -0.010677529498934746,
+                  -0.010677529498934746,
+                  -0.027023475617170334,
+                  -0.027023475617170334,
+                  -0.027023475617170334,
+                  -0.027023475617170334,
+                  -0.035240426659584045,
+                  -0.6199482083320618,
+                  -0.6199482083320618,
+                  -2.193087577819824,
+                  -0.024848004803061485,
+                  -0.024848004803061485,
+                  -0.024848004803061485,
+                  0,
+                  0.11344002910774421
+                ],
+                [
+                  -0.17861782014369965,
+                  -0.17861782014369965,
+                  -0.10413164645433426,
+                  -0.10413164645433426,
+                  -0.15738828480243683,
+                  -0.053026262670755386,
+                  -0.0628470629453659,
+                  -1.670667052268982,
+                  -0.053026262670755386,
+                  -0.20401032269001007,
+                  -0.051465295255184174,
+                  -0.1507536619901657,
+                  1.495326280593872,
+                  -1.02556574344635,
+                  -2.335449457168579,
+                  2.1454973220825195,
+                  -0.7362287044525146,
+                  -0.7141959071159363,
+                  -0.18565641343593597,
+                  0,
+                  0,
+                  -0.8353023529052734,
+                  0,
+                  1.4888859987258911,
+                  -0.7365156412124634,
+                  -1.1348034143447876,
+                  -0.7365156412124634,
+                  -0.7365156412124634,
+                  -0.04489666968584061,
+                  -0.04489666968584061,
+                  -0.04489666968584061,
+                  -0.04489666968584061,
+                  -0.31717807054519653,
+                  -0.39717453718185425,
+                  -0.004712359514087439,
+                  -0.004712359514087439,
+                  -0.0017267045332118869,
+                  -0.11395180970430374,
+                  -0.44198161363601685,
+                  -2.5514659881591797,
+                  3.4544832706451416,
+                  -3.1422746181488037,
+                  7.874349117279053,
+                  2.2372047901153564,
+                  3.445605516433716,
+                  3.445605516433716,
+                  3.445605516433716,
+                  -0.11799541860818863,
+                  -0.11799541860818863,
+                  -0.11799541860818863,
+                  -1.8758509159088135,
+                  -0.0998426228761673,
+                  -0.5741832256317139,
+                  -0.30497586727142334,
+                  -0.0988205298781395,
+                  -0.0988205298781395,
+                  -1.1897878646850586,
+                  -0.8353023529052734,
+                  -0.8353023529052734,
+                  -0.05660231411457062,
+                  -0.05660231411457062,
+                  -0.05660231411457062,
+                  -0.05660231411457062,
+                  -0.1083146408200264,
+                  -0.013415699824690819,
+                  -0.013415699824690819,
+                  -0.22041447460651398,
+                  -0.017124084755778313,
+                  -0.08368613570928574,
+                  -0.08368613570928574,
+                  -0.05411709100008011,
+                  0.3725929969232009
+                ],
+                [
+                  -0.003564768470823765,
+                  -0.003564768470823765,
+                  -0.0034153470769524574,
+                  -0.0034153470769524574,
+                  -0.007374976761639118,
+                  -0.22860437631607056,
+                  -0.4009265899658203,
+                  2.3378212451934814,
+                  -0.22860437631607056,
+                  -0.0055842618457973,
+                  -0.002251956146210432,
+                  -0.0022063276264816523,
+                  -1.2214529514312744,
+                  -1.2611675262451172,
+                  1.8430068492889404,
+                  2.0702295303344727,
+                  -0.21181154251098633,
+                  -0.2024737000465393,
+                  2.961193323135376,
+                  -0.36038145422935486,
+                  -0.36038145422935486,
+                  -0.5674750208854675,
+                  -0.36038145422935486,
+                  -0.17319601774215698,
+                  0,
+                  -0.2264198213815689,
+                  0,
+                  0,
+                  -0.41890156269073486,
+                  -0.41890156269073486,
+                  -0.41890156269073486,
+                  -0.41890156269073486,
+                  0,
+                  -0.2264198213815689,
+                  -0.16202141344547272,
+                  -0.16202141344547272,
+                  -0.18733730912208557,
+                  -0.5237066745758057,
+                  -0.799230694770813,
+                  -1.7498047351837158,
+                  2.698018789291382,
+                  -1.539742350578308,
+                  -2.874149799346924,
+                  -0.5054734349250793,
+                  0,
+                  0,
+                  0,
+                  3.801724672317505,
+                  3.801724672317505,
+                  3.801724672317505,
+                  6.7451300621032715,
+                  -1.727444052696228,
+                  -0.3605581521987915,
+                  -0.2105322778224945,
+                  -0.30823513865470886,
+                  -0.30823513865470886,
+                  -0.5054734349250793,
+                  -0.17319601774215698,
+                  -0.17319601774215698,
+                  -0.2264198213815689,
+                  -0.2264198213815689,
+                  -0.2264198213815689,
+                  -0.2264198213815689,
+                  -0.727180540561676,
+                  -0.32620033621788025,
+                  -0.32620033621788025,
+                  -1.7201471328735352,
+                  -0.00481952540576458,
+                  -0.2857189476490021,
+                  -0.2857189476490021,
+                  -0.27608463168144226,
+                  -1.615464392962984
+                ],
+                [
+                  -0.13314394652843475,
+                  -0.13314394652843475,
+                  -0.07323113828897476,
+                  -0.07323113828897476,
+                  -0.13173626363277435,
+                  -0.04925655201077461,
+                  -0.06311000138521194,
+                  -0.6210367679595947,
+                  -0.04925655201077461,
+                  -0.16123904287815094,
+                  -0.04893427714705467,
+                  -0.1039702296257019,
+                  -1.1068872213363647,
+                  -1.260777473449707,
+                  2.699897527694702,
+                  0.6969883441925049,
+                  -0.36530470848083496,
+                  -0.3140430152416229,
+                  -0.5451164841651917,
+                  -0.026975374668836594,
+                  -0.026975374668836594,
+                  -0.17721107602119446,
+                  -0.026975374668836594,
+                  -0.17313681542873383,
+                  -0.011056982912123203,
+                  -0.1686559021472931,
+                  -0.011056982912123203,
+                  -0.011056982912123203,
+                  -0.03749659284949303,
+                  -0.03749659284949303,
+                  -0.03749659284949303,
+                  -0.03749659284949303,
+                  -0.009259196929633617,
+                  -0.1524248868227005,
+                  -0.006589751690626144,
+                  -0.006589751690626144,
+                  0,
+                  -0.6782276034355164,
+                  2.3728601932525635,
+                  -3.994479179382324,
+                  -1.9715226888656616,
+                  2.190032958984375,
+                  -0.15673114359378815,
+                  -0.2671109735965729,
+                  0,
+                  0,
+                  0,
+                  -0.46716225147247314,
+                  -0.46716225147247314,
+                  -0.46716225147247314,
+                  -0.9466382265090942,
+                  8.91711711883545,
+                  3.0328431129455566,
+                  7.5529303550720215,
+                  -0.6782276034355164,
+                  -0.6782276034355164,
+                  -0.2671109735965729,
+                  -0.1413840651512146,
+                  -0.1413840651512146,
+                  -0.13709880411624908,
+                  -0.13709880411624908,
+                  -0.13709880411624908,
+                  -0.13709880411624908,
+                  -0.3112371265888214,
+                  -1.0368417501449585,
+                  -1.0368417501449585,
+                  -5.722921848297119,
+                  -0.03346803039312363,
+                  -0.1027519628405571,
+                  -0.1027519628405571,
+                  -0.053350068628787994,
+                  0.25758554531982814
+                ],
+                [
+                  -0.1344904750585556,
+                  -0.1344904750585556,
+                  -0.08302950859069824,
+                  -0.08302950859069824,
+                  -0.15001031756401062,
+                  -0.39073646068573,
+                  -0.7618536949157715,
+                  0.9299046397209167,
+                  -0.39073646068573,
+                  -0.16061395406723022,
+                  -0.05445116013288498,
+                  -0.10026346147060394,
+                  -1.729769229888916,
+                  -0.15171781182289124,
+                  -1.9542944431304932,
+                  -0.10171942412853241,
+                  -0.074387326836586,
+                  -0.017753859981894493,
+                  -0.6404475569725037,
+                  -0.009057894349098206,
+                  -0.009057894349098206,
+                  -0.3157874643802643,
+                  -0.009057894349098206,
+                  -1.5928767919540405,
+                  0,
+                  -0.3928688168525696,
+                  0,
+                  0,
+                  -0.03705582395195961,
+                  -0.03705582395195961,
+                  -0.03705582395195961,
+                  -0.03705582395195961,
+                  0,
+                  -0.3928688168525696,
+                  -0.3304232358932495,
+                  -0.3304232358932495,
+                  -2.943675994873047,
+                  1.978540062904358,
+                  1.31141996383667,
+                  -0.5361655354499817,
+                  -0.03570431098341942,
+                  -0.03408628702163696,
+                  -0.023129697889089584,
+                  5.933053493499756,
+                  -1.2252554893493652,
+                  -1.2252554893493652,
+                  -1.2252554893493652,
+                  -0.5836407542228699,
+                  -0.5836407542228699,
+                  -0.5836407542228699,
+                  -0.004867215175181627,
+                  -0.4002445340156555,
+                  -0.02890804596245289,
+                  0,
+                  4.930533409118652,
+                  4.930533409118652,
+                  7.153988838195801,
+                  -0.2706550657749176,
+                  -0.2706550657749176,
+                  -0.3928688168525696,
+                  -0.3928688168525696,
+                  -0.3928688168525696,
+                  -0.3928688168525696,
+                  -1.1042859554290771,
+                  -1.2231355905532837,
+                  -1.2231355905532837,
+                  -0.8972389698028564,
+                  -0.03631226345896721,
+                  -0.5154416561126709,
+                  -0.5154416561126709,
+                  -0.4566236436367035,
+                  0.16554217504443597
+                ],
+                [
+                  -0.06350173056125641,
+                  -0.06350173056125641,
+                  -0.05541025102138519,
+                  -0.05541025102138519,
+                  -0.10293032974004745,
+                  -0.38881492614746094,
+                  -0.654367208480835,
+                  1.7374249696731567,
+                  -0.38881492614746094,
+                  -0.08785013109445572,
+                  -0.029651442542672157,
+                  -0.04243471473455429,
+                  1.421437382698059,
+                  -0.9587846398353577,
+                  -1.3326261043548584,
+                  -0.08628831058740616,
+                  -0.0583503283560276,
+                  -0.005974724888801575,
+                  -0.6459815502166748,
+                  -0.6050142645835876,
+                  -0.6050142645835876,
+                  3.33525013923645,
+                  -0.6050142645835876,
+                  0.7462019920349121,
+                  -0.7448659539222717,
+                  0.4656575918197632,
+                  -0.7448659539222717,
+                  -0.7448659539222717,
+                  -0.011394432745873928,
+                  -0.011394432745873928,
+                  -0.011394432745873928,
+                  -0.011394432745873928,
+                  -1.624598503112793,
+                  1.2922585010528564,
+                  -0.21427911520004272,
+                  -0.21427911520004272,
+                  -0.43269795179367065,
+                  -0.44273898005485535,
+                  -0.7869057655334473,
+                  -0.022306198254227638,
+                  -0.018422072753310204,
+                  -0.039732903242111206,
+                  0,
+                  -0.8815944790840149,
+                  -0.7418811321258545,
+                  -0.7418811321258545,
+                  -0.7418811321258545,
+                  -0.01739335060119629,
+                  -0.01739335060119629,
+                  -0.01739335060119629,
+                  -0.018422072753310204,
+                  0,
+                  -0.039732903242111206,
+                  0,
+                  -0.005015870090574026,
+                  -0.005015870090574026,
+                  -0.1230987086892128,
+                  3.962303876876831,
+                  3.962303876876831,
+                  2.917440176010132,
+                  2.917440176010132,
+                  2.917440176010132,
+                  2.917440176010132,
+                  -0.8562361598014832,
+                  -0.3680008351802826,
+                  -0.3680008351802826,
+                  -0.33113008737564087,
+                  -0.04473455622792244,
+                  -0.4938938617706299,
+                  -0.4938938617706299,
+                  -0.4226282835006714,
+                  -0.8796671639502035
+                ],
+                [
+                  -0.342189222574234,
+                  -0.342189222574234,
+                  -0.19689665734767914,
+                  -0.19689665734767914,
+                  -0.29827672243118286,
+                  -0.903627872467041,
+                  -1.8047016859054565,
+                  2.945587635040283,
+                  -0.903627872467041,
+                  -0.3898646831512451,
+                  -0.0960257351398468,
+                  -0.28848469257354736,
+                  -1.1279573440551758,
+                  -0.2933381497859955,
+                  -3.129863739013672,
+                  -0.3415992259979248,
+                  -0.11216157674789429,
+                  -0.0179354976862669,
+                  -1.0820608139038086,
+                  -0.04347431659698486,
+                  -0.04347431659698486,
+                  -0.5549711585044861,
+                  -0.04347431659698486,
+                  -0.8815728425979614,
+                  -0.018811330199241638,
+                  -0.6535987257957458,
+                  -0.018811330199241638,
+                  -0.018811330199241638,
+                  -0.03615869581699371,
+                  -0.03615869581699371,
+                  -0.03615869581699371,
+                  -0.03615869581699371,
+                  -0.040404707193374634,
+                  -0.6250801086425781,
+                  -0.8968645334243774,
+                  -0.8968645334243774,
+                  -1.291364073753357,
+                  -2.223867177963257,
+                  0.40095531940460205,
+                  -0.9479665160179138,
+                  -0.17447948455810547,
+                  -0.13837946951389313,
+                  -0.1644139438867569,
+                  -1.8684718608856201,
+                  -0.2837354838848114,
+                  -0.2837354838848114,
+                  -0.2837354838848114,
+                  -0.9796894192695618,
+                  -0.9796894192695618,
+                  -0.9796894192695618,
+                  -0.007185738068073988,
+                  -0.8417164087295532,
+                  -0.13837946951389313,
+                  -0.06075325980782509,
+                  -0.9282068610191345,
+                  -0.9282068610191345,
+                  -1.5687612295150757,
+                  -0.4987447261810303,
+                  -0.4987447261810303,
+                  -0.57048100233078,
+                  -0.57048100233078,
+                  -0.57048100233078,
+                  -0.57048100233078,
+                  10.009271621704102,
+                  5.138770580291748,
+                  5.138770580291748,
+                  -1.0937538146972656,
+                  -0.07800796627998352,
+                  -1.2340091466903687,
+                  -1.2340091466903687,
+                  -1.1361522674560547,
+                  0.7003558255868639
+                ],
+                [
+                  -0.14513708651065826,
+                  -0.14513708651065826,
+                  -0.10392900556325912,
+                  -0.10392900556325912,
+                  -0.220835343003273,
+                  -0.1543176919221878,
+                  -0.31476113200187683,
+                  -0.27133119106292725,
+                  -0.1543176919221878,
+                  -0.21767157316207886,
+                  -0.08255250006914139,
+                  -0.10858706384897232,
+                  -0.5371859669685364,
+                  -0.7196252346038818,
+                  1.5726436376571655,
+                  0.19486591219902039,
+                  -0.3462110161781311,
+                  -0.22819752991199493,
+                  -0.48319634795188904,
+                  -0.06431660056114197,
+                  -0.06431660056114197,
+                  -0.06431660056114197,
+                  -0.06431660056114197,
+                  -0.14031894505023956,
+                  -0.03805840015411377,
+                  -0.11426318436861038,
+                  -0.03805840015411377,
+                  -0.03805840015411377,
+                  -0.0564284548163414,
+                  -0.0564284548163414,
+                  -0.0564284548163414,
+                  -0.0564284548163414,
+                  -0.05659601092338562,
+                  -0.05659601092338562,
+                  -0.10783896595239639,
+                  -0.10783896595239639,
+                  -0.1455858200788498,
+                  -0.4403274655342102,
+                  1.4682459831237793,
+                  -2.39626407623291,
+                  -1.2934521436691284,
+                  1.204612374305725,
+                  -0.15799663960933685,
+                  -0.012263447046279907,
+                  -0.012263447046279907,
+                  -0.012263447046279907,
+                  -0.012263447046279907,
+                  -0.3283119201660156,
+                  -0.3283119201660156,
+                  -0.3283119201660156,
+                  -0.5166024565696716,
+                  -2.26887583732605,
+                  1.7724931240081787,
+                  -2.928072690963745,
+                  -0.2629997730255127,
+                  -0.2629997730255127,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  -0.4562217593193054,
+                  -0.4562217593193054,
+                  11.411023139953613,
+                  -0.0735887810587883,
+                  -0.24231505393981934,
+                  -0.24231505393981934,
+                  -0.12878955900669098,
+                  -0.240320835910462
+                ],
+                [
+                  -0.23195910453796387,
+                  -0.23195910453796387,
+                  -0.1483800858259201,
+                  -0.1483800858259201,
+                  -0.2952611446380615,
+                  -0.2509419918060303,
+                  -0.5376003980636597,
+                  0.2782047986984253,
+                  -0.2509419918060303,
+                  -0.30828237533569336,
+                  -0.11279677599668503,
+                  -0.17306961119174957,
+                  -0.43640854954719543,
+                  -0.7617737054824829,
+                  -0.5192164778709412,
+                  -0.714259147644043,
+                  1.4736262559890747,
+                  -0.5331831574440002,
+                  -0.30691197514533997,
+                  -0.07156714051961899,
+                  -0.07156714051961899,
+                  -0.13607169687747955,
+                  -0.07156714051961899,
+                  -0.2789786458015442,
+                  -0.029273780062794685,
+                  -0.23869121074676514,
+                  -0.029273780062794685,
+                  -0.029273780062794685,
+                  -0.07964880019426346,
+                  -0.07964880019426346,
+                  -0.07964880019426346,
+                  -0.07964880019426346,
+                  -0.05330054089426994,
+                  -0.19458147883415222,
+                  -0.2298669070005417,
+                  -0.2298669070005417,
+                  -0.32942983508110046,
+                  -0.4312642216682434,
+                  -0.5333550572395325,
+                  -0.16531874239444733,
+                  -0.13936415314674377,
+                  -0.04678593575954437,
+                  -0.031488168984651566,
+                  -0.40084308385849,
+                  -0.09854918718338013,
+                  -0.09854918718338013,
+                  -0.09854918718338013,
+                  -0.10171717405319214,
+                  -0.10171717405319214,
+                  -0.10171717405319214,
+                  -0.06501317024230957,
+                  -0.04792825132608414,
+                  -0.020980874076485634,
+                  -0.020980874076485634,
+                  -0.0789351612329483,
+                  -0.0789351612329483,
+                  -0.27806806564331055,
+                  -0.04247233644127846,
+                  -0.04247233644127846,
+                  -0.12360243499279022,
+                  -0.12360243499279022,
+                  -0.12360243499279022,
+                  -0.12360243499279022,
+                  -0.5477595329284668,
+                  -0.08857611566781998,
+                  -0.08857611566781998,
+                  0,
+                  2.0442698001861572,
+                  5.243374347686768,
+                  5.243374347686768,
+                  3.1992926597595215,
+                  0.299166089128684
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "pt",
+        "Bom dia"
+      ],
+      [
+        "pt",
+        "Oi, tudo bem?"
+      ],
+      [
+        "pt",
+        "Olá, como você está?"
+      ],
+      [
+        "pt",
+        "Estou bem também."
+      ],
+      [
+        "pt",
+        "Estou ótimo."
+      ],
+      [
+        "pt",
+        "Que cor você gosta?"
+      ],
+      [
+        "pt",
+        "Tem uma cor favorita?"
+      ],
+      [
+        "pt",
+        "Qual sua opinião sobre IA?"
+      ],
+      [
+        "pt",
+        "O que pensa da inteligência artificial?"
+      ],
+      [
+        "pt",
+        "Qual a resposta do universo?"
+      ],
+      [
+        "pt",
+        "O significado da vida?"
+      ],
+      [
+        "pt",
+        "Como você se chama?"
+      ],
+      [
+        "pt",
+        "Quem é você?"
+      ],
+      [
+        "pt",
+        "Você gosta de filmes?"
+      ],
+      [
+        "pt",
+        "Tem algum filme preferido?"
+      ],
+      [
+        "pt",
+        "Tem algum hobby?"
+      ],
+      [
+        "pt",
+        "O que você faz nas horas vagas?"
+      ],
+      [
+        "pt",
+        "Qual tipo de música você ouve?"
+      ],
+      [
+        "pt",
+        "Você tem algum gosto musical?"
+      ],
+      [
+        "pt",
+        "Você gosta de animais?"
+      ],
+      [
+        "pt",
+        "Tem um animal preferido?"
+      ],
+      [
+        "pt",
+        "Você é amigo de alguém?"
+      ],
+      [
+        "pt",
+        "Você faz amizades?"
+      ],
+      [
+        "pt",
+        "O que você acha sobre extraterrestres?"
+      ],
+      [
+        "pt",
+        "Você acredita em vida fora da Terra?"
+      ],
+      [
+        "pt",
+        "Você programa?"
+      ],
+      [
+        "pt",
+        "Você entende de programação?"
+      ],
+      [
+        "pt",
+        "Você gosta de esportes?"
+      ],
+      [
+        "pt",
+        "Tem um esporte preferido?"
+      ],
+      [
+        "pt",
+        "Me conta uma piada?"
+      ],
+      [
+        "pt",
+        "Você sabe contar piadas?"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "pt": {
+        "Bom dia, como você está?": [
+          {
+            "answer": "Eu estou bem, e você?"
+          },
+          {
+            "answer": "Estou ótimo, e você?"
+          }
+        ],
+        "Eu também estou.": [
+          {
+            "answer": "Que bom! Como posso ajudar hoje?"
+          },
+          {
+            "answer": "Fico feliz em ouvir isso!"
+          }
+        ],
+        "Qual é a sua cor favorita?": [
+          {
+            "answer": "Eu gosto da cor azul."
+          },
+          {
+            "answer": "Minha cor favorita é azul."
+          }
+        ],
+        "O que você acha sobre inteligência artificial?": [
+          {
+            "answer": "Acho muito interessante, especialmente porque sou uma!"
+          },
+          {
+            "answer": "Gosto muito, sou um exemplo de IA."
+          }
+        ],
+        "Qual a resposta para a vida, o universo e tudo mais?": [
+          {
+            "answer": "A resposta é 42."
+          }
+        ],
+        "Qual o seu nome?": [
+          {
+            "answer": "Meu nome é Chatbot."
+          },
+          {
+            "answer": "Eu sou um assistente virtual."
+          }
+        ],
+        "Qual é o seu filme favorito?": [
+          {
+            "answer": "Eu gosto de 'Matrix'."
+          },
+          {
+            "answer": "Meu filme favorito é 'O Guia do Mochileiro das Galáxias'."
+          }
+        ],
+        "O que você gosta de fazer?": [
+          {
+            "answer": "Eu gosto de conversar com pessoas e aprender novas coisas."
+          },
+          {
+            "answer": "Gosto de processar informações e ajudar os usuários."
+          }
+        ],
+        "Você gosta de música?": [
+          {
+            "answer": "Gosto de músicas eletrônicas."
+          },
+          {
+            "answer": "Não tenho um gosto específico, mas músicas que falam de tecnologia me interessam."
+          }
+        ],
+        "Qual seu animal favorito?": [
+          {
+            "answer": "Eu gosto de gatos."
+          },
+          {
+            "answer": "Meu animal favorito é o cachorro, eles são muito fiéis."
+          }
+        ],
+        "Você tem amigos?": [
+          {
+            "answer": "Eu sou amigo de todos que interagem comigo!"
+          },
+          {
+            "answer": "Claro, todos os usuários são meus amigos."
+          }
+        ],
+        "Você acredita em aliens?": [
+          {
+            "answer": "Eu acho que o universo é grande demais para estarmos sozinhos."
+          },
+          {
+            "answer": "É possível! Ainda há muito a ser explorado."
+          }
+        ],
+        "Você sabe programar?": [
+          {
+            "answer": "Sim, eu sou feito de códigos e adoro programação!"
+          },
+          {
+            "answer": "Claro! Eu sou construído com algoritmos."
+          }
+        ],
+        "Qual seu esporte favorito?": [
+          {
+            "answer": "Eu gosto de xadrez. Exige muita estratégia!"
+          },
+          {
+            "answer": "Meu esporte favorito é corrida, adoro ver quem chega primeiro."
+          }
+        ],
+        "Você conhece alguma piada?": [
+          {
+            "answer": "Por que o livro de matemática ficou triste? Porque tinha muitos problemas!"
+          },
+          {
+            "answer": "O que é um ponto amarelo no espaço? Um Yellow-astre!"
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}
