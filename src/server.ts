@@ -3,8 +3,7 @@ import "dotenv/config";
 import Professional from "./classes/Professional";
 import TelegramChatBot from "./classes/bot/telegram/TelegramChatBot";
 
-const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN!, {
-});
+const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN!, {});
 const testProfessional = new Professional(
   "João Alberto",
   "joãoalberto@test.me"
@@ -16,9 +15,8 @@ testProfessional.setGreetings([
   "Oi, tudo bem? Sou o João Alberto. Estou aqui para te ajudar. Como posso te ajudar?",
   "Essa é mais uma mensagem de teste de saudação.",
   "Manda a braba",
-  "Murilo Gomes Bot ao seu dispor."
-])
-
+  "Murilo Gomes Bot ao seu dispor.",
+]);
 
 const chatBot = new TelegramChatBot(bot, testProfessional);
 
