@@ -21,7 +21,11 @@
   "dependencies": {
     "@nlpjs/basic": "^4.27.0",
     "dotenv": "^16.4.5",
+<<<<<<< HEAD
     "node-nlp": "^4.27.0",
     "node-telegram-bot-api": "^0.66.0"
+=======
+    "node-telegram-bot-api": "^0.63.0"
+>>>>>>> telegram-chatbot
   }
 }
