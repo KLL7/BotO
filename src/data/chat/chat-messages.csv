@@ -1,19 +1,21 @@
-chatId,message
-6970758104,texto
-6970758104,texto oo ooo
-6970758104,asdads
-6970758104,tudo certo
-6970758104,time
-6970758104,time
-6970758104,time
-6970758104,eae
-6970758104,time
-6970758104,time
-6970758104,/start
-6970758104,/time
-6970758104,eae
-6970758104,/time
-6970758104,bao
-6970758104,/time
-6970758104,/time
-6970758104,/time
+chatId,message,type
+Olá tudo bem?,greeting
+Olá tudo bem?,greeting
+Olá tudo bem?,greeting
+Olá tudo bem?,greeting
+Olá tudo bem?,greeting
+Olá tudo bem?,greeting
+opa cara tudo bem contigo?,greeting
+opa cara  tudo bem contigo?,greeting
+Opa cara tudo bem contigo?,greeting
+Opa cara tudo bem contigo?,greeting
+opa cara  tudo bem contigo?,greeting
+Opa irmão,greeting
+opa cara,greeting
+opa cara eae,greeting
+eae cara  como vai?,greeting
+opa  eae irmão,greeting
+eae irmão,greeting
+ei cara,greeting
+ei cara  preciso falar contigo,greeting
+ei man,greeting

@@ -4,7 +4,9 @@
   "description": "Chat bot para profissionais liberais",
   "main": "index.js",
   "scripts": {
-    "dev": "tsnd --exit-child --respawn --transpile-only --files src/server.ts"
+    "dev": "tsnd --exit-child --respawn --transpile-only --files src/server.ts",
+    "test:corpus": "tsnd --exit-child --respawn --transpile-only --files tests/corpus.ts",
+    "test:bot": "tsnd --exit-child --respawn --transpile-only --files tests/server.ts"
   },
   "keywords": [],
   "author": "Isaac Sales, Kayo Lucas e Matusálem de Sousa",
