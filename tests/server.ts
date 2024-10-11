@@ -21,3 +21,4 @@ testProfessional.setGreetings([
 const chatBot = new TelegramChatBot(bot, testProfessional);
 
 chatBot.inicializeBot();
+
