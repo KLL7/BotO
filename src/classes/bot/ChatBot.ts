@@ -53,19 +53,15 @@ export default class ChatBot {
       const phrase = corpus[i];
 
       const similarity = CosineSimilarity.compareTwoPhrases(message, phrase, 3);
-      // console.log(`Similarity with ${phrase}: ${similarity}`);
 
       if (similarity >= this.cutOff) {
         File.saveChatMessageCSV(message, messageType);
         insertMethod(message);
 
-        console.log(`
-          ${phrase} (similarity: ${similarity})  
-        `);
+        console.log(`${phrase} (similarity: ${similarity})`);
 
         return this.getProfessional().getRandomGreeting();
       }
-      console.log(phrase);
 
       dontMatchSimilarities += `${phrase}: ${similarity}\n`;
 

@@ -9,15 +9,6 @@ const testProfessional = new Professional(
   "joãoalberto@test.me"
 );
 
-testProfessional.setGreetings([
-  "Olá! Sou da área de aprimoramento de espelhos quebrados. Estou aqui para te ajudar.",
-  "Oi, tudo bem? Estou aqui para poder te atender, como posso te chamar?",
-  "Oi, tudo bem? Sou o João Alberto. Estou aqui para te ajudar. Como posso te ajudar?",
-  "Essa é mais uma mensagem de teste de saudação.",
-  "Manda a braba",
-  "Murilo Gomes Bot ao seu dispor.",
-]);
-
 const chatBot = new TelegramChatBot(bot, testProfessional);
 
 chatBot.inicializeBot();
