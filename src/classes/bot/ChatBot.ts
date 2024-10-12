@@ -23,7 +23,7 @@ export default class ChatBot {
   }
 
   async analyzeMessage(message: string) {
-    const typesToAnalyze: matchWithType[] = [
+    const messagesTypesToAnalyze: matchWithType[] = [
       {
         message,
         corpusMethod: Corpus.getGreetingCorpus,
@@ -32,7 +32,7 @@ export default class ChatBot {
       },
     ];
 
-    const promisesToAnalyze = typesToAnalyze.map((type) =>
+    const promisesToAnalyze = messagesTypesToAnalyze.map((type) =>
       this.matchWithCorpusMessageType(type)
     );
 
