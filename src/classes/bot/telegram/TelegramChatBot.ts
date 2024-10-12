@@ -1,4 +1,4 @@
-import TelegramBot, { CallbackQuery, Message } from "node-telegram-bot-api";
+import TelegramBot, { Message } from "node-telegram-bot-api";
 import Professional from "../../Professional";
 import ChatBot from "../ChatBot";
 
@@ -12,12 +12,22 @@ export default class TelegramChatBot extends ChatBot {
 
   inicializeBot(): void {
     this.telegramBot.startPolling({ polling: true });
+
     console.log("Bot is running...");
 
-    this.telegramBot.on("message", async (msg) => {
-      const response = await super.analyzeMessage(msg.text!);
-      this.sendMessage(msg, response!);
-    });
+    this.telegramBot.on("message", this.handleMessage);
+  }
+
+  async handleMessage(msg: Message): Promise<void> {
+    const response = await super.analyzeMessage(msg.text!);
+
+    if (!response) {
+      const textMessage = "Desculpe, ainda estou treinando para entender isso.";
+
+      this.sendMessage(msg, textMessage);
+    }
+
+    this.sendMessage(msg, response!);
   }
 
   greetingMessages(msg: Message): void {
