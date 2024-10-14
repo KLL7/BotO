@@ -5,12 +5,13 @@
 //  days: [1, 2, 3] - Domingo, Segunda e Terça
 // }
 
+import Customer from "./Customer";
+
 export interface serviceTime {
   hour: number;
   day: number;
   isAvailable: boolean;
-  //TODO: add customer logic here, like an object or something else
-  customer?: string;
+  customer?: Customer;
 }
 
 export type rawServiceHours = {
@@ -52,7 +53,7 @@ export default class SchedulingCalendar {
     return serviceTimes;
   }
 
-  scheduleServiceTime(serviceTime: serviceTime, customer = "") {
+  scheduleServiceTime(serviceTime: serviceTime, customer: Customer) {
     const serviceTimeIndex = this.serviceTimes.indexOf(serviceTime);
 
     if (!this.serviceTimes[serviceTimeIndex].isAvailable) return;
