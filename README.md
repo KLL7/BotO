@@ -16,7 +16,7 @@ Chat bot para profissionais liberais
  - [🔴] - Modificar informações do modelo (se preenchido)
  - [🔴] - Solicitar criação de um Bot'O (futuramente, em diferentes redes sociais)
 
-[🔴] - Class BotO
+[🔵] - Class BotO
  - [🔴] - Preencher modelo com informações do Professional
- - [🔴] - Criar lógica do fluxo da conversa 
- - [🔴] - Conectar com alguma rede social
+ - [🔵] - Criar lógica do fluxo da conversa 
+ - [🔵] - Conectar com alguma rede social
