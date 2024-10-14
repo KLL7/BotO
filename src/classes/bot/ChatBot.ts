@@ -33,8 +33,8 @@ export default class ChatBot {
     ];
 
     const promisesToAnalyze = messagesTypesToAnalyze.map((type) =>
-      this.matchWithCorpusMessageType(type)
-    );
+    this.matchWithCorpusMessageType(type) 
+  );
 
     return (await Promise.all(promisesToAnalyze))[0];
   }

@@ -1,13 +1,16 @@
 import TelegramBot, { Message } from "node-telegram-bot-api";
 import Professional from "../../Professional";
 import ChatBot from "../ChatBot";
+import KeyPhraseLogger from "../../../utils/KeyPhraseLogger";
 
 export default class TelegramChatBot extends ChatBot {
   private telegramBot: TelegramBot;
+  private keyPhraseLogger: KeyPhraseLogger;
 
   constructor(telegramBot: TelegramBot, professional: Professional) {
     super(professional);
     this.telegramBot = telegramBot;
+    this.keyPhraseLogger = new KeyPhraseLogger(['eu quero', 'gostaria', 'eu queria']);
   }
 
   inicializeBot(): void {
@@ -27,6 +30,8 @@ export default class TelegramChatBot extends ChatBot {
       this.sendMessage(msg, textMessage);
     }
 
+    this.keyPhraseLogger.detectAndSave(msg.text!, msg.chat.id);
+    
     this.sendMessage(msg, response!);
   }
 
