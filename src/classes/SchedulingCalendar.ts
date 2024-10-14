@@ -4,19 +4,86 @@
 //  hours: [15, 16, 17, 18, 19, 20], - das 15h as 20h
 //  days: [1, 2, 3] - Domingo, Segunda e Terça
 // }
-interface serviceHours {
-  hours: number[];
-  days: number[];
+
+interface serviceTime {
+  hour: number;
+  day: number;
+  isAvailable: boolean;
+  //TODO: add customer logic here, like an object or something else
+  customer?: string;
 }
 
-export default class SchedulingCalendar {
-  private serviceHours: serviceHours = {} as serviceHours;
+type rawServiceHours = {
+  hours: Array<number>;
+  days: Array<number>;
+};
 
-  constructor(serviceHours: serviceHours) {
-    this.serviceHours = serviceHours;
+export default class SchedulingCalendar {
+  private rawServiceHours = {} as rawServiceHours;
+  private serviceTimes: serviceTime[] = [];
+  private appointments: serviceTime[] = [];
+
+  constructor(rawServiceHours: any) {
+    this.rawServiceHours = rawServiceHours;
   }
 
-  getWeekDayNameByNumber(day: number): string {
+  initializeServiceTimes() {
+    this.serviceTimes = this.createServiceTimes(this.rawServiceHours);
+  }
+
+  private createServiceTimes(rawServiceHours: rawServiceHours): serviceTime[] {
+    const serviceTimes: serviceTime[] = [];
+
+    for (const i in rawServiceHours.days) {
+      const day = rawServiceHours.days[i];
+      for (const j in rawServiceHours.hours) {
+        const hour = rawServiceHours.hours[j];
+
+        const serviceTime = {
+          hour,
+          day,
+          isAvailable: true,
+        };
+
+        serviceTimes.push(serviceTime);
+      }
+    }
+
+    return serviceTimes;
+  }
+
+  scheduleServiceTime(serviceTime: serviceTime, customer = "") {
+    const serviceTimeIndex = this.serviceTimes.indexOf(serviceTime);
+
+    if (!this.serviceTimes[serviceTimeIndex].isAvailable) return;
+
+    this.serviceTimes[serviceTimeIndex].isAvailable = false;
+
+    const scheduleAServiceTime = {
+      ...serviceTime,
+      customer,
+    };
+
+    this.appointments.push(scheduleAServiceTime);
+  }
+
+  unscheduleAppointment(appointment: serviceTime) {
+    const appointmentIndex = this.appointments.indexOf(appointment);
+    this.appointments.splice(appointmentIndex, 1);
+
+    const { day, hour } = appointment;
+
+    for (let i = 0; i < this.serviceTimes.length; i++) {
+      if (
+        this.serviceTimes[i].day === day &&
+        this.serviceTimes[i].hour === hour
+      ) {
+        this.serviceTimes[i].isAvailable = true;
+      }
+    }
+  }
+
+  private getWeekDayNameByNumber(day: number): string {
     switch (day) {
       case 1:
         return "Domingo";
@@ -37,15 +104,15 @@ export default class SchedulingCalendar {
     }
   }
 
-  getHumanizedWeekDays() {
-    const humanizedWeekDays = this.serviceHours.days.map((day) =>
+  private getHumanizedWeekDays() {
+    const humanizedWeekDays = this.rawServiceHours.days.map((day) =>
       this.getWeekDayNameByNumber(day)
     );
 
     return humanizedWeekDays;
   }
 
-  formatNumberToHour(num: number): string {
+  private formatNumberToHour(num: number): string {
     let minutes: number | string = (num % 1) * 60;
     let hour: number | string = num - minutes;
 
@@ -55,8 +122,8 @@ export default class SchedulingCalendar {
     return `${hour}:${minutes}`;
   }
 
-  getHumanizedHours() {
-    const humanizedHours = this.serviceHours.hours.map((hour) =>
+  private getHumanizedHours() {
+    const humanizedHours = this.rawServiceHours.hours.map((hour) =>
       this.formatNumberToHour(hour)
     );
 
@@ -68,13 +135,10 @@ export default class SchedulingCalendar {
     const hours = this.getHumanizedHours();
     const humanizedCalendar = [];
 
-    for (let i = 0; i < days.length; i++) {
-      const day = days[i];
+    for (const day of days) {
       const currentWeek = [];
 
-      for (let j = 0; j < hours.length; j++) {
-        const hour = hours[j];
-
+      for (const hour of hours) {
         const finalHour = `${day} às ${hour}`;
         currentWeek.push(finalHour);
       }
@@ -85,11 +149,19 @@ export default class SchedulingCalendar {
     return humanizedCalendar;
   }
 
-  getServiceHours(): serviceHours {
-    return this.serviceHours;
+  getRawServiceHours(): rawServiceHours {
+    return this.rawServiceHours;
   }
 
-  setServiceHours(serviceHours: serviceHours) {
-    this.serviceHours = serviceHours;
+  setRawServiceHours(rawServiceHours: rawServiceHours) {
+    this.rawServiceHours = rawServiceHours;
+  }
+
+  getServiceTimes(): serviceTime[] {
+    return this.serviceTimes;
+  }
+
+  getAppointments(): serviceTime[] {
+    return this.appointments;
   }
 }
