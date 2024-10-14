@@ -5,7 +5,7 @@
 //  days: [1, 2, 3] - Domingo, Segunda e Terça
 // }
 
-interface serviceTime {
+export interface serviceTime {
   hour: number;
   day: number;
   isAvailable: boolean;
@@ -13,7 +13,7 @@ interface serviceTime {
   customer?: string;
 }
 
-type rawServiceHours = {
+export type rawServiceHours = {
   hours: Array<number>;
   days: Array<number>;
 };
