@@ -13,9 +13,12 @@ export default class TelegramChatBot extends ChatBot {
     super(professional);
     this.telegramBot = telegramBot;
     this.keyPhraseLogger = new KeyPhraseLogger([
-      "eu quero",
-      "gostaria",
-      "eu queria",
+      'consulta',
+      'agendamento', 
+      'eu queria',
+      'fazer um agendamento',
+      'queria agendar',
+      'agendar consulta'
     ]);
   }
 
@@ -46,6 +49,14 @@ export default class TelegramChatBot extends ChatBot {
   }
 
   async handleMessage(msg: Message): Promise<void> {
+    const chatId = msg.chat.id;
+    const text = msg.text;
+
+    if (text === "/relatorio") {
+      this.keyPhraseLogger.generateReport(chatId, this.telegramBot);
+      return;
+    }
+
     const messageTypes = await super.analyzeMessage(msg.text!);
 
     if (messageTypes.includes("greeting")) {
@@ -64,7 +75,7 @@ export default class TelegramChatBot extends ChatBot {
       this.sendMessage(msg, textMessage);
     }
 
-    this.keyPhraseLogger.detectAndSave(msg.text!, msg.chat.id);
+    this.keyPhraseLogger.detectAndSave(text!, chatId);
   }
 
   greetingMessages(msg: Message): void {

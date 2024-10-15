@@ -55,3 +55,10 @@ opa, eae
 {
 ?
 eae cara
+Bom dia
+Olá, bom dia
+Olá
+Olá
+Olá
+Bom dia
+Olá
