@@ -6,7 +6,7 @@ import { CORPUS_DIR_PATH } from "../data/constants/paths";
 export default class Corpus {
   private static readline = rl.createInterface({ input, output });
 
-  static async insertGreetingFromTerminal(): Promise<void> {
+  static async insertGreetingFromTerminal(): Promise<void> {  
     console.log('Insert your greetings (enter "quit" to exit)): ');
 
     while (true) {
@@ -28,6 +28,16 @@ export default class Corpus {
   static async getGreetingCorpus(): Promise<string[]> {
     return await File.arrayFromFileContentLines(
       `${CORPUS_DIR_PATH}/greetings-corpus.txt`
+    );
+  }
+
+  static insertAppointment(message: string): void {
+    File.saveToTXT("appointments-corpus", message);
+  }
+
+  static async getAppointmentsCorpus(): Promise<string[]> {
+    return await File.arrayFromFileContentLines(
+      `${CORPUS_DIR_PATH}/appointments-corpus.txt`
     );
   }
 }

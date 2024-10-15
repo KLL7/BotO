@@ -24,8 +24,16 @@ export default class SchedulingCalendar {
   private serviceTimes: serviceTime[] = [];
   private appointments: serviceTime[] = [];
 
-  constructor(rawServiceHours: any) {
+  private constructor(rawServiceHours: any) {
     this.rawServiceHours = rawServiceHours;
+  }
+
+  static create(rawServiceHours: rawServiceHours) {
+    const schedulingCalendar = new SchedulingCalendar(rawServiceHours);
+    
+    schedulingCalendar.initializeServiceTimes();
+    
+    return schedulingCalendar;
   }
 
   initializeServiceTimes() {
@@ -148,6 +156,21 @@ export default class SchedulingCalendar {
     }
 
     return humanizedCalendar;
+  }
+
+  createHumanizedCalendarFromServiceTime(serviceTime: serviceTime): string {
+    const { day, hour } = serviceTime;
+    const weekDay = this.getWeekDayNameByNumber(day);
+
+    return `${weekDay} - ${this.formatNumberToHour(hour)}`;
+  }
+
+  getAvailableServiceTime() {
+    const availableServiceTimes = this.serviceTimes.filter(
+      (serviceTime) => serviceTime.isAvailable
+    );
+
+    return availableServiceTimes;
   }
 
   getRawServiceHours(): rawServiceHours {

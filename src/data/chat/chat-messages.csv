@@ -14,7 +14,7 @@ Opa irmão,greeting
 opa cara,greeting
 opa cara eae,greeting
 eae cara  como vai?,greeting
-opa  eae irmão,greeting
+eae irmão,greeting
 eae irmão,greeting
 ei cara,greeting
 ei cara  preciso falar contigo,greeting
@@ -30,3 +30,16 @@ Oi,greeting
 Boa tarde,greeting
 Olá,greeting
 Bom dia,greeting
+opa,greeting
+como voce está?,greeting
+queria saber como posso agendar uma hora com você,appointment/scheduling
+opa  eae,greeting
+},greeting
+},appointment/scheduling
+{,greeting
+{,appointment/scheduling
+?,greeting
+?,appointment/scheduling
+posso agendar um horario contigo?,appointment/scheduling
+eae cara,greeting
+queria fazer um agendamento,appointment/scheduling
