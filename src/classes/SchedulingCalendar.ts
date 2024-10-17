@@ -169,7 +169,7 @@ export default class SchedulingCalendar {
     const { day, hour } = serviceTime;
     const weekDay = this.getWeekDayNameByNumber(day);
 
-    return `${weekDay} - ${this.formatNumberToHour(hour)}`;
+    return `${weekDay} às ${this.formatNumberToHour(hour)}`;
   }
 
   getAvailableServiceTime() {
