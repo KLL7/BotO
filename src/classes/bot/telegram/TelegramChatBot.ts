@@ -4,22 +4,26 @@ import ChatBot from "../ChatBot";
 import KeyPhraseLogger from "../../../utils/KeyPhraseLogger";
 import { serviceTime } from "../../SchedulingCalendar";
 import Customer from "../../Customer";
+import e from "express";
+import Corpus from "../../../utils/Corpus";
 
 export default class TelegramChatBot extends ChatBot {
   private telegramBot: TelegramBot;
   private keyPhraseLogger: KeyPhraseLogger;
+  private customer: undefined | Customer;
 
   constructor(telegramBot: TelegramBot, professional: Professional) {
     super(professional);
     this.telegramBot = telegramBot;
     this.keyPhraseLogger = new KeyPhraseLogger([
-      'consulta',
-      'agendamento', 
-      'eu queria',
-      'fazer um agendamento',
-      'queria agendar',
-      'agendar consulta'
+      "consulta",
+      "agendamento",
+      "eu queria",
+      "fazer um agendamento",
+      "queria agendar",
+      "agendar consulta",
     ]);
+    this.handleCallbackQuery = this.handleCallbackQuery.bind(this);
   }
 
   inicializeBot(): void {
@@ -29,23 +33,26 @@ export default class TelegramChatBot extends ChatBot {
 
     this.telegramBot.on("message", this.handleMessage.bind(this));
 
-  
     // Ainda em construção, tem erro nisso aqui
     this.telegramBot.on("callback_query", this.handleCallbackQuery);
+
+    this.telegramBot.on("polling_error", (err) => console.log(err));
   }
 
   // Ainda em construção, tem erro nisso aqui
-  handleCallbackQuery(callback: CallbackQuery): void {
+  private handleCallbackQuery(callback: CallbackQuery): void {
+    const response = this.handleAppointmentChoice(this.customer!, {
+      serviceTime: JSON.parse(callback.data!),
+      humanizedDate: this.getProfessional()
+        .getSchedulingCalendar()
+        .createHumanizedCalendarFromServiceTime(JSON.parse(callback.data!)),
+    } as { serviceTime: serviceTime; humanizedDate: string });
+
     const chatId = callback.from.id;
 
-    const data = JSON.parse(callback.data!);
-    const customer = new Customer("Nome do cliente", "Numero do clinte");
+    this.telegramBot.deleteMessage(chatId, callback.message!.message_id!);
 
-    this.getProfessional()
-      .getSchedulingCalendar()
-      .scheduleServiceTime(data as serviceTime, customer);
-
-    this.telegramBot.deleteMessage(chatId, callback.message!.message_id);
+    this.telegramBot.sendMessage(chatId, response);
   }
 
   async handleMessage(msg: Message): Promise<void> {
@@ -57,28 +64,38 @@ export default class TelegramChatBot extends ChatBot {
       return;
     }
 
-    const messageTypes = await super.analyzeMessage(msg.text!);
-
-    if (messageTypes.includes("greeting")) {
-      this.greetingMessages(msg);
-      return;
-    }
-
-    if (messageTypes.includes("appointment/scheduling")) {
-      this.schedulingMessage(msg);
-      return;
-    }
-
-    if (!messageTypes) {
-      const textMessage = "Desculpe, ainda estou treinando para entender isso.";
-
-      this.sendMessage(msg, textMessage);
+    if (!this.customer) {
+      this.registerCustomer(msg);
     }
 
     this.keyPhraseLogger.detectAndSave(text!, chatId);
+
+    const matchesWithCorpus = await this.getMatchesWithCorpus(msg.text!);
+
+    console.log(`Received message: ${msg.text}`);
+
+    console.log("\n");
+
+    console.log("Matches with this message: ", { matchesWithCorpus });
+
+    console.log("\n");
+
+    for (const match of matchesWithCorpus) {
+      if (!match.matchesWithMessageType) continue;
+
+      if (match.messageType === "greeting") {
+        this.greetingMessages(msg);
+        Corpus.insertGreeting(msg.text!);
+      }
+
+      if (match.messageType === "appointment/scheduling") {
+        this.schedulingMessage(msg);
+        Corpus.insertAppointment(msg.text!);
+      }
+    }
   }
 
-  greetingMessages(msg: Message): void {
+  private greetingMessages(msg: Message): void {
     const chatId = msg.chat.id;
 
     const greeting =
@@ -87,7 +104,7 @@ export default class TelegramChatBot extends ChatBot {
     this.telegramBot.sendMessage(chatId, greeting);
   }
 
-  createInlineKeyBoardFromAppointments(
+  private createInlineKeyBoardFromAppointments(
     appointments: {
       serviceTime: serviceTime;
       humanizedDate: string;
@@ -111,11 +128,12 @@ export default class TelegramChatBot extends ChatBot {
     return inlineKeyBoard;
   }
 
-  schedulingMessage(msg: Message): void {
-    const chatId = msg.chat.id;
-
-    const appointments = this.createAppointmentMessage();
-
+  private createQueryOptions(
+    appointments: {
+      serviceTime: serviceTime;
+      humanizedDate: string;
+    }[]
+  ) {
     const inline_keyboard =
       this.createInlineKeyBoardFromAppointments(appointments);
 
@@ -125,19 +143,29 @@ export default class TelegramChatBot extends ChatBot {
       },
     };
 
-    this.telegramBot.sendMessage(
-      chatId,
-      "Se quiser agendar uma hora comigo é só escolher um dos horários disponíveis",
-      queryOptions
-    );
+    return queryOptions;
   }
 
-  sendMessage(msg: Message, text: string): void {
+  registerCustomer(message: Message): void {
+    const chatId = message.chat.id;
+    const customerName = message.from?.first_name ?? "Nome não identificado";
+    const customerNumber =
+      message.contact?.phone_number ?? "Número não identificado";
+
+    this.customer = new Customer(customerName, customerNumber, chatId);
+  }
+
+  private schedulingMessage(msg: Message): void {
     const chatId = msg.chat.id;
 
-    if (!text)
-      text = "Opa! Ainda estou aprendendo a entender isso, tente outra coisa";
+    const { appointmentsData, message } = this.handleAppointmentMessageMatch(
+      this.customer!
+    );
 
-    this.telegramBot.sendMessage(chatId, text);
+    this.telegramBot.sendMessage(
+      chatId,
+      message,
+      this.createQueryOptions(appointmentsData)
+    );
   }
 }

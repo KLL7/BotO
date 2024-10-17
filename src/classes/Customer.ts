@@ -1,11 +1,17 @@
 export default class Customer {
   private name: string;
   private number: string;
+  private chatId: number;
   private appointment: string[] = [];
 
-  constructor(name: string, number: string) {
+  constructor(name: string, number: string, chatId: number) {
     this.name = name;
     this.number = number;
+    this.chatId = chatId;
+  }
+  
+  getChatId(): number {
+    return this.chatId;
   }
 
   getAppointment(): string[] {
@@ -18,6 +24,10 @@ export default class Customer {
 
   getNumber(): string {
     return this.number;
+  }
+
+  setChatId(chatId: number) {
+    this.chatId = chatId;
   }
 
   setAppointment(appointment: string[]) {

@@ -76,10 +76,32 @@ export default class CosineSimilarity {
     return Counter.getCounts(accumulator);
   }
 
-  static compareTwoPhrases(phrase1: string, phrase2: string, NGramToken = 2) {
+  static compareTwoPhrases(
+    phrase1: string,
+    phrase2: string,
+    NGramToken: number
+  ) {
     const vec1 = this.transformPhraseToVector(phrase1, NGramToken);
     const vec2 = this.transformPhraseToVector(phrase2, NGramToken);
 
     return this.cosineSimilarity(vec1, vec2);
   }
+
+  static messageMatchesWithCorpus(
+    message: string,
+    corpus: string[],
+    cutOff = 0.4,
+    NGramToken = 3
+  ): boolean {
+    for (let i = 0; i < corpus.length; i++) {
+      const similarity = this.compareTwoPhrases(message, corpus[i], NGramToken);
+
+      if (similarity >= cutOff) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
 }

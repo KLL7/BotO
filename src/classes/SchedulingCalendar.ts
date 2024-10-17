@@ -30,9 +30,9 @@ export default class SchedulingCalendar {
 
   static create(rawServiceHours: rawServiceHours) {
     const schedulingCalendar = new SchedulingCalendar(rawServiceHours);
-    
+
     schedulingCalendar.initializeServiceTimes();
-    
+
     return schedulingCalendar;
   }
 
@@ -62,7 +62,14 @@ export default class SchedulingCalendar {
   }
 
   scheduleServiceTime(serviceTime: serviceTime, customer: Customer) {
-    const serviceTimeIndex = this.serviceTimes.indexOf(serviceTime);
+    const serviceTimeIndex = this.serviceTimes.findIndex(
+      (serviceTimeElement) =>
+        serviceTimeElement.hour === serviceTime.hour &&
+        serviceTimeElement.day === serviceTime.day
+    );
+
+    console.log(this.serviceTimes[serviceTimeIndex]);
+    console.log(serviceTimeIndex);
 
     if (!this.serviceTimes[serviceTimeIndex].isAvailable) return;
 

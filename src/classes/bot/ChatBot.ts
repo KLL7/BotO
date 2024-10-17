@@ -1,7 +1,9 @@
 import Corpus from "../../utils/Corpus";
 import CosineSimilarity from "../../utils/CosineSimilarity";
 import File from "../../utils/File";
+import Customer from "../Customer";
 import Professional from "../Professional";
+import { serviceTime } from "../SchedulingCalendar";
 
 type messageType = "greeting" | "appointment/scheduling";
 
@@ -20,7 +22,7 @@ export default class ChatBot {
     this.professional = professional;
   }
 
-  createAppointmentMessage() {
+  private createAppointmentsToUseOnMessage() {
     const schedulingCalendar = this.professional.getSchedulingCalendar();
 
     const availableServiceTimes = schedulingCalendar.getAvailableServiceTime();
@@ -53,61 +55,69 @@ export default class ChatBot {
     return this.professional;
   }
 
-  async analyzeMessage(
-    message: string
-  ): Promise<Array<messageType | undefined>> {
-    const messagesTypesToAnalyze: matchWithType[] = [
+  handleAppointmentMessageMatch(customer: Customer): {
+    message: string;
+    appointmentsData: {
+      serviceTime: serviceTime;
+      humanizedDate: string;
+    }[];
+  } {
+    // A mensagem que vem abaixo poderia mudar de acordo com o que foi solicitado.
+    // No exemplo abaixo, a impressão que dá é já do encerramento da conversa
+    // Mas se tiver no começo, pode ser um texto mais convidativo a outras interações
+
+    const message = `Então, ${customer.getName()}.\nEm qual horário fica melhor para nos encontrarmos?`;
+
+    const appointmentsData = this.createAppointmentsToUseOnMessage();
+
+    return { message, appointmentsData };
+  }
+
+  handleAppointmentChoice(
+    customer: Customer,
+    timeChoice: { serviceTime: serviceTime; humanizedDate: string }
+  ) {
+    const message = `Certo, nessa ${timeChoice.humanizedDate} nos encontraremos.\nJá estou no aguardo, qualquer coisa a mais, só entrar em contato comigo.`;
+    console.log(timeChoice)
+
+    this.professional
+      .getSchedulingCalendar()
+      .scheduleServiceTime(timeChoice.serviceTime, customer);
+
+    return message;
+  }
+
+  async getMatchesWithCorpus(message: string) {
+    const corpusMethods = [
+      { corpusMethod: Corpus.getGreetingCorpus, messageType: "greeting" },
       {
-        message,
-        corpusMethod: Corpus.getGreetingCorpus,
-        messageType: "greeting",
-        insertMethod: Corpus.insertGreeting,
-      },
-      {
-        message,
         corpusMethod: Corpus.getAppointmentsCorpus,
         messageType: "appointment/scheduling",
-        insertMethod: Corpus.insertAppointment,
       },
     ];
 
-    const promisesToAnalyze = messagesTypesToAnalyze.map((type) =>
-      this.matchWithCorpusMessageType(type)
+    const corpusData = await Promise.all(
+      corpusMethods.map(async (corpusMethod) => {
+        const corpus = await corpusMethod.corpusMethod();
+
+        return {
+          corpus,
+          messageType: corpusMethod.messageType,
+        };
+      })
     );
 
-    return await Promise.all(promisesToAnalyze);
-  }
+    const messageTypeMatches = corpusData.map((corpus) => {
+      return {
+        matchesWithMessageType: CosineSimilarity.messageMatchesWithCorpus(
+          message,
+          corpus.corpus,
+          this.cutOff
+        ),
+        messageType: corpus.messageType as messageType,
+      };
+    });
 
-  async matchWithCorpusMessageType({
-    corpusMethod,
-    insertMethod,
-    message,
-    messageType,
-  }: matchWithType): Promise<messageType | undefined> {
-    const corpus = await corpusMethod();
-
-    let dontMatchSimilarities = "";
-
-    for (let i = 0; i < corpus.length; i++) {
-      const phrase = corpus[i];
-
-      const similarity = CosineSimilarity.compareTwoPhrases(message, phrase, 3);
-
-      if (similarity >= this.cutOff) {
-        File.saveChatMessageCSV(message, messageType);
-        insertMethod(message);
-
-        console.log(`${phrase} (similarity: ${similarity})`);
-
-        return messageType;
-      }
-
-      dontMatchSimilarities += `${phrase}: ${similarity}\n`;
-
-      if (i == corpus.length - 1) {
-        console.log("No match found");
-        console.log(`Similarities: ${dontMatchSimilarities}`);
-      }
-    }
+    return messageTypeMatches;
   }
 }

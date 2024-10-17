@@ -51,9 +51,6 @@ Bom dia
 opa
 ola, como voce está?
 opa, eae
-}
-{
-?
 eae cara
 Bom dia
 Olá, bom dia
@@ -62,3 +59,6 @@ Olá
 Olá
 Bom dia
 Olá
+ola, tudo bem, gostaria de agendar uma reunião contigo, quais horários você tem disponível?fala ai
+opa
+fala ai paeopa
