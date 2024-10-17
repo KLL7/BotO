@@ -78,11 +78,13 @@ export default class ChatBot {
     timeChoice: { serviceTime: serviceTime; humanizedDate: string }
   ) {
     const message = `Certo, nessa ${timeChoice.humanizedDate} nos encontraremos.\nJá estou no aguardo, qualquer coisa a mais, só entrar em contato comigo.`;
-    console.log(timeChoice)
+    console.log(timeChoice);
 
     this.professional
       .getSchedulingCalendar()
       .scheduleServiceTime(timeChoice.serviceTime, customer);
+
+    customer.setAppointment([timeChoice]);
 
     return message;
   }

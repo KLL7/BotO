@@ -4,7 +4,6 @@ import ChatBot from "../ChatBot";
 import KeyPhraseLogger from "../../../utils/KeyPhraseLogger";
 import { serviceTime } from "../../SchedulingCalendar";
 import Customer from "../../Customer";
-import e from "express";
 import Corpus from "../../../utils/Corpus";
 
 export default class TelegramChatBot extends ChatBot {
@@ -37,6 +36,10 @@ export default class TelegramChatBot extends ChatBot {
     this.telegramBot.on("callback_query", this.handleCallbackQuery);
 
     this.telegramBot.on("polling_error", (err) => console.log(err));
+
+    this.telegramBot.onText(/cliente/, (msg) => {
+      console.log(this.customer);
+    });
   }
 
   // Ainda em construção, tem erro nisso aqui
