@@ -62,3 +62,6 @@ Olá
 ola, tudo bem, gostaria de agendar uma reunião contigo, quais horários você tem disponível?fala ai
 opa
 fala ai paeopa
+Boa noite, meu parceiro
+oi
+Boa noite

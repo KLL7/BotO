@@ -22,6 +22,13 @@ export default class KeyPhraseLogger {
       }
     });
   }
+
+  logAppointment(name: string, chatId: number, appointmentTime: string) {
+    const timestamp = new Date().toISOString().replace(/:/g, "-");
+    const logMessage = `[${timestamp}] Agendamento registrado: Nome: "${name}", Chat ID: ${chatId}, Horário: ${appointmentTime}\n`;
+    this.logs.push(logMessage);
+  }
+
   generateReport(chatId: number, bot: TelegramBot) {
     if (this.logs.length > 0) {
       const directoryPath = path.join(__dirname, "../../TestLogger");

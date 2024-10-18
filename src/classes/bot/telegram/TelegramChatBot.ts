@@ -40,15 +40,28 @@ export default class TelegramChatBot extends ChatBot {
   }
 
   // Ainda em construção, tem erro nisso aqui
+  // Mudanças feitas aqui, não sei se o comentário de cima ainda é válido
   private handleCallbackQuery(callback: CallbackQuery): void {
+    const appointmentData = JSON.parse(callback.data!);
     const response = this.handleAppointmentChoice(this.customer!, {
-      serviceTime: JSON.parse(callback.data!),
+      serviceTime: appointmentData,
       humanizedDate: this.getProfessional()
         .getSchedulingCalendar()
-        .createHumanizedCalendarFromServiceTime(JSON.parse(callback.data!)),
+        .createHumanizedCalendarFromServiceTime(appointmentData),
     } as { serviceTime: serviceTime; humanizedDate: string });
 
     const chatId = callback.from.id;
+    const appointmentTime = this.getProfessional()
+      .getSchedulingCalendar()
+      .createHumanizedCalendarFromServiceTime(appointmentData);
+
+    if (this.customer) {
+      this.keyPhraseLogger.logAppointment(
+        this.customer.getName(),
+        chatId,
+        appointmentTime
+      );
+    }
 
     this.telegramBot.deleteMessage(chatId, callback.message!.message_id!);
 
@@ -68,6 +81,7 @@ export default class TelegramChatBot extends ChatBot {
       this.registerCustomer(msg);
     }
 
+    //Deixando marcado
     this.keyPhraseLogger.detectAndSave(text!, chatId);
 
     const matchesWithCorpus = await this.getMatchesWithCorpus(msg.text!);
