@@ -3,16 +3,12 @@ import CosineSimilarity from "../../utils/CosineSimilarity";
 import File from "../../utils/File";
 import Customer from "../Customer";
 import Professional from "../Professional";
-import { serviceTime } from "../SchedulingCalendar";
+import SchedulingCalendar, { serviceTime } from "../SchedulingCalendar";
 
-type messageType = "greeting" | "appointment/scheduling";
-
-interface matchWithType {
-  message: string;
-  corpusMethod: () => Promise<string[]>;
-  messageType: messageType;
-  insertMethod: (message: string) => void;
-}
+type messageType =
+  | "greeting"
+  | "appointment/scheduling"
+  | "hours-appointment/scheduling";
 
 export default class ChatBot {
   private professional: Professional;
@@ -30,7 +26,7 @@ export default class ChatBot {
     const appointmentsToUseOnMessage = availableServiceTimes.map(
       (serviceTime) => {
         const humanizedDate =
-          schedulingCalendar.createHumanizedCalendarFromServiceTime(
+          SchedulingCalendar.createHumanizedCalendarFromServiceTime(
             serviceTime
           );
 
@@ -78,7 +74,6 @@ export default class ChatBot {
     timeChoice: { serviceTime: serviceTime; humanizedDate: string }
   ) {
     const message = `Certo, nessa ${timeChoice.humanizedDate} nos encontraremos.\nJá estou no aguardo, qualquer coisa a mais, só entrar em contato comigo.`;
-    console.log(timeChoice);
 
     this.professional
       .getSchedulingCalendar()
@@ -95,6 +90,10 @@ export default class ChatBot {
       {
         corpusMethod: Corpus.getAppointmentsCorpus,
         messageType: "appointment/scheduling",
+      },
+      {
+        corpusMethod: Corpus.getHoursAppointment,
+        messageType: "hours-appointment/scheduling",
       },
     ];
 
@@ -121,5 +120,38 @@ export default class ChatBot {
     });
 
     return messageTypeMatches;
+  }
+
+  // isso aqui das horas é uma gambiarra so pra funcionar no dia, nem penso que isso dê certo pra mais coisas.
+  getAppointmentHoursFromMessage(message: string) {
+    const weekDay = this.extractWeekDayFromMessage(message);
+    const hour = this.extractHoursFromMessage(message);
+
+    return { hour, day: weekDay, isAvailable: true } as serviceTime;
+  }
+
+  private extractWeekDayFromMessage(
+    message: string
+  ): number | undefined {
+    const days = [
+      { text: "segunda", dayNumber: 1 },
+      { text: "terça", dayNumber: 2 },
+      { text: "quarta", dayNumber: 3 },
+      { text: "quinta", dayNumber: 4 },
+      { text: "sexta", dayNumber: 5 },
+      { text: "sabado", dayNumber: 6 },
+      { text: "domingo", dayNumber: 7 },
+    ];
+
+    for (const day of days) {
+      if (message.includes(day.text)) return day.dayNumber;
+    }
+  }
+
+  private extractHoursFromMessage(message: string) {
+    const regex = /\b(2[0-3]|[01]?\d)h\b/g;
+    const possibleHour = message.match(regex);
+
+    return parseInt(possibleHour?.[0].replace("h", "")!);
   }
 }

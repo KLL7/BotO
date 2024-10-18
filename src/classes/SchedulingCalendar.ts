@@ -40,6 +40,43 @@ export default class SchedulingCalendar {
     this.serviceTimes = this.createServiceTimes(this.rawServiceHours);
   }
 
+  scheduleServiceTime(serviceTime: serviceTime, customer: Customer) {
+    const serviceTimeIndex = this.serviceTimes.findIndex(
+      (serviceTimeElement) =>
+        serviceTimeElement.hour === serviceTime.hour &&
+        serviceTimeElement.day === serviceTime.day
+    );
+
+    if (!this.serviceTimes[serviceTimeIndex].isAvailable) return;
+
+    this.serviceTimes[serviceTimeIndex].isAvailable = false;
+
+    const scheduleAServiceTime = {
+      ...serviceTime,
+      customer,
+    };
+
+    this.appointments.push(scheduleAServiceTime);
+  }
+
+  unscheduleAppointment(appointment: serviceTime, customer: Customer) {
+    const appointmentIndex = this.appointments.indexOf(appointment);
+    this.appointments.splice(appointmentIndex, 1);
+
+    const { day, hour } = appointment;
+
+    for (let i = 0; i < this.serviceTimes.length; i++) {
+      if (
+        this.serviceTimes[i].day === day &&
+        this.serviceTimes[i].hour === hour
+      ) {
+        this.serviceTimes[i].isAvailable = true;
+      }
+    }
+
+    customer.setAppointment([]);
+  }
+
   private createServiceTimes(rawServiceHours: rawServiceHours): serviceTime[] {
     const serviceTimes: serviceTime[] = [];
 
@@ -61,45 +98,7 @@ export default class SchedulingCalendar {
     return serviceTimes;
   }
 
-  scheduleServiceTime(serviceTime: serviceTime, customer: Customer) {
-    const serviceTimeIndex = this.serviceTimes.findIndex(
-      (serviceTimeElement) =>
-        serviceTimeElement.hour === serviceTime.hour &&
-        serviceTimeElement.day === serviceTime.day
-    );
-
-    console.log(this.serviceTimes[serviceTimeIndex]);
-    console.log(serviceTimeIndex);
-
-    if (!this.serviceTimes[serviceTimeIndex].isAvailable) return;
-
-    this.serviceTimes[serviceTimeIndex].isAvailable = false;
-
-    const scheduleAServiceTime = {
-      ...serviceTime,
-      customer,
-    };
-
-    this.appointments.push(scheduleAServiceTime);
-  }
-
-  unscheduleAppointment(appointment: serviceTime) {
-    const appointmentIndex = this.appointments.indexOf(appointment);
-    this.appointments.splice(appointmentIndex, 1);
-
-    const { day, hour } = appointment;
-
-    for (let i = 0; i < this.serviceTimes.length; i++) {
-      if (
-        this.serviceTimes[i].day === day &&
-        this.serviceTimes[i].hour === hour
-      ) {
-        this.serviceTimes[i].isAvailable = true;
-      }
-    }
-  }
-
-  private getWeekDayNameByNumber(day: number): string {
+  private static getWeekDayNameByNumber(day: number): string {
     switch (day) {
       case 1:
         return "Domingo";
@@ -120,15 +119,7 @@ export default class SchedulingCalendar {
     }
   }
 
-  private getHumanizedWeekDays() {
-    const humanizedWeekDays = this.rawServiceHours.days.map((day) =>
-      this.getWeekDayNameByNumber(day)
-    );
-
-    return humanizedWeekDays;
-  }
-
-  private formatNumberToHour(num: number): string {
+  private static formatNumberToHour(num: number): string {
     let minutes: number | string = (num % 1) * 60;
     let hour: number | string = num - minutes;
 
@@ -138,34 +129,7 @@ export default class SchedulingCalendar {
     return `${hour}:${minutes}`;
   }
 
-  private getHumanizedHours() {
-    const humanizedHours = this.rawServiceHours.hours.map((hour) =>
-      this.formatNumberToHour(hour)
-    );
-
-    return humanizedHours;
-  }
-
-  createHumanizedCalendar(): string[][] {
-    const days = this.getHumanizedWeekDays();
-    const hours = this.getHumanizedHours();
-    const humanizedCalendar = [];
-
-    for (const day of days) {
-      const currentWeek = [];
-
-      for (const hour of hours) {
-        const finalHour = `${day} às ${hour}`;
-        currentWeek.push(finalHour);
-      }
-
-      humanizedCalendar.push(currentWeek);
-    }
-
-    return humanizedCalendar;
-  }
-
-  createHumanizedCalendarFromServiceTime(serviceTime: serviceTime): string {
+  static createHumanizedCalendarFromServiceTime(serviceTime: serviceTime): string {
     const { day, hour } = serviceTime;
     const weekDay = this.getWeekDayNameByNumber(day);
 
