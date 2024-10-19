@@ -20,3 +20,6 @@ Chat bot para profissionais liberais
  - [🔴] - Preencher modelo com informações do Professional
  - [🔵] - Criar lógica do fluxo da conversa 
  - [🔵] - Conectar com alguma rede social
+ - [🔵] - Criação de relatório de resumo de pedido
+
+
