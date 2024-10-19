@@ -1,3 +1,0 @@
-[2024-10-18T02-37-18.392Z] Fase de testes para relatório: Objetivo detectado: "agendamento" na conversa do chatId 1916251256.
-.[2024-10-18T02-37-18.392Z] Fase de testes para relatório: Objetivo detectado: "fazer um agendamento" na conversa do chatId 1916251256.
-.

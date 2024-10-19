@@ -11,21 +11,34 @@ export default class KeyPhraseLogger {
     this.logs = [];
   }
 
+  private formattedTime(date: Date) {
+    return `${date.getDate().toString().padStart(2, "0")}/${(
+      date.getMonth() + 1
+    )
+      .toString()
+      .padStart(2, "0")}/${date.getFullYear()} ${date
+      .getHours()
+      .toString()
+      .padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`;
+  }
+
   detectAndSave(text: string, chatId: number) {
     const normalizedText = text.toLowerCase();
-    const timestamp = new Date().toISOString().replace(/:/g, "-");
+    const timestamp = this.formattedTime(new Date());
 
     this.keyPhrases.forEach((phrase) => {
       if (normalizedText.includes(phrase.toLowerCase())) {
-        const logMessage = `[${timestamp}] Fase de testes para relatório: Objetivo detectado: "${phrase}" na conversa do chatId ${chatId}.\n.`;
+        const logMessage = `[${timestamp}] Frase detectada: "${phrase}" na conversa do chatId ${chatId}.\nMensagem completa: ${text}\n`;
         this.logs.push(logMessage);
       }
     });
   }
 
   logAppointment(name: string, chatId: number, appointmentTime: string) {
-    const timestamp = new Date().toISOString().replace(/:/g, "-");
-    const logMessage = `[${timestamp}] Agendamento registrado: Nome: "${name}", Chat ID: ${chatId}, Horário: ${appointmentTime}\n`;
+    const appointmentDate = this.formattedTime(new Date(appointmentTime));
+    const currentTimestamp = this.formattedTime(new Date());
+
+    const logMessage = `[${currentTimestamp}] Agendamento registrado: Nome: "${name}", Chat ID: ${chatId}, Horário: ${appointmentDate}\n`;
     this.logs.push(logMessage);
   }
 
@@ -48,6 +61,8 @@ export default class KeyPhraseLogger {
       console.log(`Relatório gerado em: ${filePath}`);
 
       this.sendReport(filePath, chatId, bot);
+
+      this.logs = [];
     } else {
       console.log("Nenhum log detectado, relatório não será gerado.");
     }

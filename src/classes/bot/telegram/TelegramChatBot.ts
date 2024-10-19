@@ -50,7 +50,6 @@ export default class TelegramChatBot extends ChatBot {
       this.registerCustomer(msg);
     }
 
-    //Deixando marcado
     this.keyPhraseLogger.detectAndSave(text!, chatId);
 
     const matchesWithCorpus = await this.getMatchesWithCorpus(msg.text!);
