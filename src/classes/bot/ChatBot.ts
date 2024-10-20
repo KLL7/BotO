@@ -62,7 +62,7 @@ export default class ChatBot {
     // No exemplo abaixo, a impressão que dá é já do encerramento da conversa
     // Mas se tiver no começo, pode ser um texto mais convidativo a outras interações
 
-    const message = `Então, ${customer.getName()}.\nEm qual horário fica melhor para nos encontrarmos?`;
+    const message = `Então, ${customer.getName()}.\nJá tem algum horário em mente?`;
 
     const appointmentsData = this.createAppointmentsToUseOnMessage();
 
@@ -130,17 +130,15 @@ export default class ChatBot {
     return { hour, day: weekDay, isAvailable: true } as serviceTime;
   }
 
-  private extractWeekDayFromMessage(
-    message: string
-  ): number | undefined {
+  private extractWeekDayFromMessage(message: string): number | undefined {
     const days = [
-      { text: "segunda", dayNumber: 1 },
-      { text: "terça", dayNumber: 2 },
-      { text: "quarta", dayNumber: 3 },
-      { text: "quinta", dayNumber: 4 },
-      { text: "sexta", dayNumber: 5 },
-      { text: "sabado", dayNumber: 6 },
-      { text: "domingo", dayNumber: 7 },
+      { text: "domingo", dayNumber: 1 },
+      { text: "segunda", dayNumber: 2 },
+      { text: "terça", dayNumber: 3 },
+      { text: "quarta", dayNumber: 4 },
+      { text: "quinta", dayNumber: 5 },
+      { text: "sexta", dayNumber: 6 },
+      { text: "sabado", dayNumber: 7 },
     ];
 
     for (const day of days) {

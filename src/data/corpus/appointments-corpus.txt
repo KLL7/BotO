@@ -90,19 +90,9 @@ Quais são os horários livres que você tem essa semana?
 Queria saber quando posso ser atendido por você.
 Quando posso agendar um horário para discutir a questão?
 Você pode me atender em algum horário nesta semana?
-Estou precisando agendar uma reunião para discutir um contrato que está gerando dúvidas.Oi, tudo bem? Estou precisando agendar uma reunião para discutir um contrato que está gerando dúvidas.
+Estou precisando agendar uma reunião para discutir um contrato que está gerando dúvidas.
+Oi, tudo bem? Estou precisando agendar uma reunião para discutir um contrato que está gerando dúvidas.
 queria agendar um horaria contigo pra uma reunião
-acho q nessa sexta às 14h da certo
-pode ser quarta as 14h
-pode ser quarta as 14h
-pode ser quarta as 14h
-pode ser quarta as 14h
-pode ser quarta as 14h
-pode ser quarta as 14h
-pode ser quarta as 14h
-pode ser quarta as 14h
-pode ser quarta as 14h
-pode ser quarta as 14h
 QUero fazer um agendamento
 Quero fazer um agedamento
 Quero fazer uma agendamento
@@ -112,3 +102,7 @@ QUeero fazer um agendamento
 Eu gostaria de fazer um agendamento, quais são os horários disponiveis?
 Agendamento
 Outro agendamento
+queria poder agendar uma reunião contigo
+queria poder agendar uma reunião contigo
+queria agendar uma reunião contigo, preciso tratar de assuntos sérios
+umas 16h nessa segunda, pode ser?

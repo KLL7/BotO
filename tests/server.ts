@@ -10,11 +10,10 @@ const testProfessional = new Professional(
 );
 
 testProfessional.setGreetings([
-  "Olá! Sou da aprimoramento de espelhos quebrados. Estou aqui para te ajudar.",
+  "Olá! Pode falar o que precisa. Estou aqui para te ajudar.",
   "Oi, tudo bem? Estou aqui para poder te atender, como posso te chamar?",
-  "Oi, tudo bem? Sou o João Alberto. Estou aqui para te ajudar. Como posso te ajudar?",
-  "Essa é mais uma mensagem de teste de saudação.",
-  "Manda a braba",
+  "Opa! Como posso te ajudar?",
+  "Opa, tudo bem? Como posso te ajudar?",
 ]);
 
 testProfessional.setSchedulingCalendar({

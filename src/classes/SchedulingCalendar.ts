@@ -47,7 +47,9 @@ export default class SchedulingCalendar {
         serviceTimeElement.day === serviceTime.day
     );
 
-    if (!this.serviceTimes[serviceTimeIndex].isAvailable) return;
+    if (serviceTimeIndex === -1 || !this.serviceTimes[serviceTimeIndex].isAvailable) {
+      return "Infelizmente não temos esse horário disponível. Tem outro em mente?";
+    }
 
     this.serviceTimes[serviceTimeIndex].isAvailable = false;
 
@@ -129,7 +131,9 @@ export default class SchedulingCalendar {
     return `${hour}:${minutes}`;
   }
 
-  static createHumanizedCalendarFromServiceTime(serviceTime: serviceTime): string {
+  static createHumanizedCalendarFromServiceTime(
+    serviceTime: serviceTime
+  ): string {
     const { day, hour } = serviceTime;
     const weekDay = this.getWeekDayNameByNumber(day);
 

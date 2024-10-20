@@ -1,4 +1,4 @@
-import TelegramBot, { CallbackQuery, Message } from "node-telegram-bot-api";
+import TelegramBot, { Message } from "node-telegram-bot-api";
 import Professional from "../../Professional";
 import ChatBot from "../ChatBot";
 import KeyPhraseLogger from "../../../utils/KeyPhraseLogger";
@@ -25,7 +25,7 @@ export default class TelegramChatBot extends ChatBot {
   }
 
   inicializeBot(): void {
-    this.telegramBot.startPolling({ polling: true });
+    this.telegramBot.startPolling();
 
     console.log("Bot is running...");
 
@@ -127,7 +127,7 @@ export default class TelegramChatBot extends ChatBot {
 
     this.telegramBot.sendMessage(
       chatId,
-      `Certo, ${this.customer?.getName()}.\nNossa te espero ${SchedulingCalendar.createHumanizedCalendarFromServiceTime(
+      `Certo, ${this.customer?.getName()}.\nNossa reunião está marcada, te espero ${SchedulingCalendar.createHumanizedCalendarFromServiceTime(
         hourChoice
       )}`
     );

@@ -104,3 +104,6 @@ Boa noite
 Boa tarde
 Bom dia
 Bom dia
+ola
+opa, tudo bem?
+Opa
