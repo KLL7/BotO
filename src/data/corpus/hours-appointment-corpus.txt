@@ -14,7 +14,7 @@ Segunda às 11h está bom para mim.
 Prefiro quinta às 17h.
 Agende para quarta às 9h, por favor.
 Sexta às 12h está ótimo para mim.
-O horário de segunda às 14h serve bem.
+O horário de segunda às QUERO 12H14h serve bem.
 Quarta às 8h está confirmado.
 Pode agendar para terça às 15h.
 Sexta às 9h seria excelente.
@@ -40,3 +40,9 @@ Prefiro segunda às 8h.
 Pode ser quarta às 11h.
 pode ser domingo às 15h
 umas 16h nessa segunda, pode ser?
+Pode ser
+quero às 12 horas de terça
+quero às 11 horas de sábDO
+quero às 12h de terça
+QUERO 12H
+terça feira, às 18h, dá certo para você?

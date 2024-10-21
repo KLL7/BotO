@@ -21,6 +21,8 @@ export default class TelegramChatBot extends ChatBot {
       "fazer um agendamento",
       "queria agendar",
       "agendar consulta",
+      "quero agendar",
+      
     ]);
   }
 

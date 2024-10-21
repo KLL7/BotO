@@ -107,3 +107,6 @@ Bom dia
 ola
 opa, tudo bem?
 Opa
+Bom dia
+oi
+OI
